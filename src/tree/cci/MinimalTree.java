@@ -33,7 +33,8 @@ public class MinimalTree {
     public static void main(String args[]) {
         MinimalTree mt = new MinimalTree();
 
-        int a[] = {2, 7, 4, 1, 5, 3};
+        // int a[] = {2, 7, 4, 1, 5, 3};
+        int a[] = {1, 2, 3, 4, 5, 7};
         Node root = mt.createMinimalBST(a);
         System.out.println("Done!");
     }
