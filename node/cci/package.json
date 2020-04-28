@@ -1,0 +1,17 @@
+{
+  "name": "cci",
+  "version": "1.0.0",
+  "description": "Algorithms practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.*"
+  },
+  "author": "Sunil Bandaru",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^7.1.1",
+    "sinon": "^9.0.2"
+  }
+}
