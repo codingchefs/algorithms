@@ -4,7 +4,7 @@ const expect = chai.expect;
 const { partition } = require('../../src/LinkedLists/Partition');
 const LinkedList = require('../../src/LinkedLists/LinkedList');
 
-describe("Linked List - Partition", function() {
+describe.skip("Linked List - Partition", function() {
   let ll;
 
   beforeEach(function() {

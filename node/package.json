@@ -4,7 +4,7 @@
   "description": "Algorithms practice",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.*"
+    "test": "mocha **/tests/**/*.*"
   },
   "author": "Sunil Bandaru",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "chai-as-promised": "^7.1.1",
     "mocha": "^7.1.1",
     "sinon": "^9.0.2"
+  },
+  "dependencies": {
+    "assert": "^2.0.0"
   }
 }

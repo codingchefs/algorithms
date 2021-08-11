@@ -4,7 +4,7 @@ const expect = chai.expect;
 const { hasLoop } = require('../../src/LinkedLists/LoopDetection');
 const { LinkedList, Node} = require('../../src/LinkedLists/LinkedList');
 
-describe("Linked List - is there intersection?", function() {
+describe.skip("Linked List - is there intersection?", function() {
   let ll;
 
   beforeEach(function() {

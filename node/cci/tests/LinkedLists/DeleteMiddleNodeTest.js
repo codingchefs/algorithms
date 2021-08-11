@@ -4,7 +4,7 @@ const expect = chai.expect;
 const deleteMiddleNode = require('../../src/LinkedLists/DeleteMiddleNode');
 const LinkedList = require('../../src/LinkedLists/LinkedList');
 
-describe("Linked List - Delete Middle Node", function() {
+describe.skip("Linked List - Delete Middle Node", function() {
   let ll;
 
   beforeEach(function() {

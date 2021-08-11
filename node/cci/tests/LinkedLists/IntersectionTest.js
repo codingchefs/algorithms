@@ -4,7 +4,7 @@ const expect = chai.expect;
 const { findIntersection, getIntersection } = require('../../src/LinkedLists/Intersection');
 const { LinkedList, Node } = require('../../src/LinkedLists/LinkedList');
 
-describe("Linked List - is there intersection?", function() {
+describe.skip("Linked List - is there intersection?", function() {
   let ll1;
   let ll2;
 

@@ -3,7 +3,7 @@ const expect = chai.expect;
 const nthToLast = require('../../src/LinkedLists/NthToLast');
 const LinkedList = require('../../src/LinkedLists/LinkedList');
 
-describe("Linked List - Return Kth to Last", function() {
+describe.skip("Linked List - Return Kth to Last", function() {
   let ll;
 
   before(function() {
