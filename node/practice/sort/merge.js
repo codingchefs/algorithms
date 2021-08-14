@@ -2,8 +2,8 @@ const assert = require('assert');
 
 const mergeSort = array => {
     // base case
-    if(array.length <= 1) return array;
-    const mid = Math.floor(array.length /2)
+    if (array.length <= 1) return array;
+    const mid = Math.floor(array.length / 2)
     // mergeSort on left array
     const left = mergeSort(array.slice(0, mid));
     // mergeSort on right array
