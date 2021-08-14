@@ -1,20 +1,21 @@
 const assert = require('assert');
 const insertionSort = (array) => {
     let j = 0;
-    for(let i = 1; i < array.length; i++) {
-      const currentValue = array[i];
-      for(j = i - 1; j >= 0 && currentValue < array[j]; j--) {
-          array[j + 1] = array[j];
-      }
-      array[j+1] = currentValue;
-  }
+    // loop through starting from second element in the array
+    for (let i = 1; i < array.length; i++) {
+        // get the first element as current value
+        const currentValue = array[i];
+        // loop through starting with `j` as `i-1` back to `0` and check if currentValue is less than jth element
+        for (j = i - 1; j >= 0 && currentValue < array[j]; j--) {
+            // if condition met move `j` to `j+1` place
+            array[j + 1] = array[j];
+        }
+        // finally insert currentValue at `j+1` place
+        array[j + 1] = currentValue;
+    }
 
-  return array;
+    return array;
 };
-// Array(8) [22,33,44,66,77,88,11,55]
-// const arrayToSort = [44, 77, 22, 88, 33, 66, 11, 55];
-// const sortedArray = insertionSort(arrayToSort);
-// console.log(sortedArray.join(','));
 
 /** Tests **/
 // Test sorting an empty list.
