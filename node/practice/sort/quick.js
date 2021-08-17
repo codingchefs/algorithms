@@ -1,71 +1,79 @@
-const partition1 = (arr, lb, ub) => {
-  const pivot = arr[lb];
-  let start = lb;
-  let end = ub;
-  while (start < end) {
-    while (arr[start] <= pivot && start < end) {
-      start = start + 1;
-    }
-    while (arr[end] > pivot) {
-      end = end - 1;
-    }
-    if (start < end) {
-      swap(arr, start, end);
-    }
-  }
+const assert = require('assert');
 
-  arr[lb] = arr[end];
-  arr[end] = pivot;
-  return end;
+/**
+ * quick sorts elements
+ * @param array
+ * @param left
+ * @param right
+ * @returns {*}
+ */
+const quickSort = (array, left = 0, right = array.length - 1) => {
+    // base case as left < right
+    if (left < right) {
+        // call pivot function on the array
+        const pivotIdx = pivotHelper(array, left, right);
+        // recursively call the quick sort on array with left and pivotIndex -1
+        quickSort(array, left, pivotIdx - 1);
+        // recursively call the quick sort on array with pivotIndex + 1 and right
+        quickSort(array, pivotIdx + 1, right);
+    }
+
+    return array;
 };
 
-const partition = (arr, lb, ub) => {
-  // fix first element as pivot, declare start, end
-  let start = lb;
-  let end = ub;
-  const pivot = arr[start]
-  // iterate through array while start < end
-  while(start < end) {
-    // while start elements are lower than pivot move start to right
-    while(arr[start] <= pivot && start < end) {
-      start++;
+/**
+ * swaps elements to the left of pivot
+ *
+ * @param array
+ * @param start
+ * @param end
+ * @returns {number}
+ */
+const pivotHelper = (array, start = 0, end = array.length - 1) => {
+    // initialize the pivot to start of array
+    let pivot = array[start];
+    // initialize swap index to be start
+    let swapIdx = start;
+    // loop through array starting from `start+1` to end
+    for (let i = start + 1; i <= end; i++) {
+        // if pivot element is greater than current element
+        if (pivot > array[i]) {
+            // increment swap index
+            swapIdx++;
+            // swap elements between i and swap index
+            swap(array, swapIdx, i);
+        }
     }
-    // while end elements are greater than pivot move end to left
-    while(arr[end] > pivot) {
-      end--;
-    }
-    // else swap the elements if start < end
-    if(start < end) {
-      swap(arr, start, end);
-    }
-  }
 
-  // assign end index to pivot
-  arr[lb] = arr[end]
-  // assign first element to end element
-  arr[end] = pivot;
-  return end;
+    // finally swap elements between start and swap index
+    swap(array, start, swapIdx);
+
+    return swapIdx;
+}
+
+const swap = (array, firstIdx, secondIdx) => {
+    const temp = array[firstIdx];
+    array[firstIdx] = array[secondIdx];
+    array[secondIdx] = temp;
 };
 
-const swap = (arr, firstIndex, secondIndex) => {
-  let temp = arr[secondIndex];
-  arr[secondIndex] = arr[firstIndex];
-  arr[firstIndex] = temp;
-};
+/** Tests **/
+// Test sorting an empty list.
+assert.deepEqual(quickSort([]), []);
 
-const quickSort = (arr, lb, ub) => {
-  if (lb < ub) {
-    const loc = partition(arr, lb, ub);
-    quickSort(arr, lb, loc - 1);
-    quickSort(arr, loc + 1, ub);
-    return arr;
-  }
-};
+// Test sorting a list with one element.
+assert.deepEqual(quickSort([3]), [3]);
 
-const handleQuickSort = (arr) => {
-  return quickSort(arr, 0, arr.length -1);
-};
+// Test sorting a list with elements in ascending order.
+assert.deepEqual(quickSort([0, 1, 2]), [0, 1, 2]);
 
-const arrayToSort = [60, 40, 20, 95, 90, 30, 50, 70];
-const sortedArray = handleQuickSort(arrayToSort);
-console.log(sortedArray.join(','));
+// Test sorting a list with elements in descending order.
+assert.deepEqual(quickSort([2, 1, 0]), [0, 1, 2]);
+
+// Test sorting a list with duplicate elements.
+assert.deepEqual(quickSort([22, 11, 35, 41, 47, 56, 41]), [11, 22, 35, 41, 41, 47, 56]);
+
+// Test sorting a large array.
+assert.deepEqual(quickSort([64, 34, 25, 12, 22, 11, 90]), [11, 12, 22, 25, 34, 64, 90]);
+
+console.log('All test cases passed!');
