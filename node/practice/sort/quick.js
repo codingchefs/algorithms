@@ -5,7 +5,7 @@ const assert = require('assert');
  * @param array
  * @param left
  * @param right
- * @returns {*}
+ * @returns {Array}
  */
 const quickSort = (array, left = 0, right = array.length - 1) => {
     // base case as left < right
