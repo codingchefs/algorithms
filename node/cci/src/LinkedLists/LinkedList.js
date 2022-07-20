@@ -107,7 +107,7 @@ class LinkedList {
   }
 
   insert(index, data) {
-    if(index ===0){
+    if(index === 0){
       this.unshift(data);
       return true;
     } else if(!this.get(index)) {

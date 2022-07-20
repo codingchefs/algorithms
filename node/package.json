@@ -5,24 +5,23 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha **/tests/**/*.*",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "jenkins-audit": "audit-ci --config=audit-ci.json 2$>audit-report.json"
   },
   "author": "Sunil Bandaru",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "libxmljs2": "^0.29.0",
     "mocha": "^7.2.0",
+    "saxon-js": "^2.3.0",
     "sinon": "^9.0.2"
   },
   "dependencies": {
     "assert": "^2.0.0",
-    "chai": "^4.3.4"
+    "audit-ci": "^5.1.2",
+    "chai": "^4.3.4",
+    "sqlite3": "^5.0.2"
   }
 }

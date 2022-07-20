@@ -21,4 +21,5 @@ const isUniqueChars = (str) => {
     return true;
 };
 
+console.log('node version:', process.version);
 console.log('is unique:', isUniqueChars("sunil"));

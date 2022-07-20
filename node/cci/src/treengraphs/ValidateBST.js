@@ -1,4 +1,4 @@
-/* Implement a function to check ifa binary tree is a binary search tree. */
+/* Implement a function to check if a binary tree is a binary search tree. */
 class TreeNode {
     constructor(data) {
         this.data = data;
