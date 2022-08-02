@@ -1,29 +1,26 @@
 const assert = require('assert');
-const selectionSort = array => {
-    // loop through all the elements
-    for (let i = 0, n = array.length; i < n; i++) {
-        // store first element as smallest element
-        let lowest = i;
-        // loop through t
-
+/**
+ * Time Complexity O(N^2)
+ * selection sort is better than bubble sort
+ * selectio sort not that good on nearly sorted arrays compared to bubble and insertion
+ * @param {Array} arr
+ * @returns {Array} - Sorted Array
+ */
+const selectionSort = arr => {
+    for (let i = 0, n = arr.length; i < n; i++) {
+        // loop through and find the min element.
+        let minEle = i;
         for (let j = i + 1; j < n; j++) {
-            // compare the lowest to the current element and update if you find lower element than lowest
-            if (array[j] < array[lowest]) {
-                lowest = j;
+            if (arr[j] < arr[minEle]) {
+                minEle = j;
             }
         }
-        // swap i with lowest element
-        swap(array, i, lowest);
+        // swap the min element with the ith element index
+        if (i !== minEle) {
+            [arr[i], arr[minEle]] = [arr[minEle], arr[i]];
+        }
     }
-
-    return array;
-
-};
-
-const swap = (array, firstIndex, secondIndex) => {
-    const temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
+    return arr;
 };
 
 /** Tests **/

@@ -1,6 +1,7 @@
 const assert = require('assert');
 
 /**
+ * Time complexity (best & average: O(n log n), worst: O(n^2). Space Complexity: O(log n)
  * quick sorts elements
  *
  * @param array
@@ -48,6 +49,7 @@ const pivotHelper = (array, start = 0, end = array.length - 1) => {
   swap(array, start, swapIdx);
   return swapIdx;
 };
+// [4, 8, 2, 1, 5, 7, 6, 3]
 
 /**
  * Swap the elements first index with second index

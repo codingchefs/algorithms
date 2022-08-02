@@ -1,35 +1,44 @@
+
 const assert = require('assert');
+/**
+ * Best case/ Avg case/ Worst case - O(n logn), space complexity O(N)
+ * Merge sort - O(nlogN)
+ * @param array
+ * @returns {*[]|*}
+ */
 const mergeSort = array => {
     // base case
-    if (array.length <= 1) return array;
-    // find mid point
-    const mid = Math.floor(array.length / 2);
-    // mergeSort left array
+    if(array.length <= 1) return array;
+
+    // find midpoint
+    const mid = Math.floor(array.length/2);
+
+    // recurse on left side half
     const left = mergeSort(array.slice(0, mid));
-    // mergeSort right array
+
+    // recurse on right side half
     const right = mergeSort(array.slice(mid));
-    // merge left and right
+
+    // merge both halfs
     return merge(left, right);
 };
 
 const merge = (sortedArray1, sortedArray2) => {
-    // initialize variables for length counter
+    // check values from array 1 and array 2
     let i = 0;
     let j = 0;
     let result = [];
-
-    // loop through both arrays till one of it is exhausted
     while (i < sortedArray1.length && j < sortedArray2.length) {
-        if (sortedArray1[i] < sortedArray2[j]) {
-            result.push(sortedArray1[i]);
-            i++;
-        } else {
+        if (sortedArray1[i] > sortedArray2[j]) {
             result.push(sortedArray2[j]);
             j++;
+        } else {
+            result.push(sortedArray1[i]);
+            i++;
         }
     }
 
-    // add left over elements to arrays
+    // remaining values in the two arrays
     while (i < sortedArray1.length) {
         result.push(sortedArray1[i]);
         i++;
