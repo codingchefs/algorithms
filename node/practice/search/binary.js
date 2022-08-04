@@ -1,3 +1,9 @@
+/**
+ * Time complexity: worst case O(n logn), best case O(1)
+ * @param {Array} array
+ * @param {number} value
+ * @returns {number} - index of the found element
+ */
 const binarySearch = (array, value) => {
     // start
     let start = 0;
