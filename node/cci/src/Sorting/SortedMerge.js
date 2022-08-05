@@ -8,31 +8,37 @@
  * at A to the end of Array A and decrement index for A. otherwise keep element at B to the end of
  * Array A and decrement index for B. Also decrement indexMerged always
  *
- * @param listA
- * @param listB
- * @param lastA
- * @param lastB
+ * @param list1
+ * @param list2
+ * @param m
+ * @param n
  */
-const sortedMerge = (listA, listB, lastA, lastB) => {
-  const newListA = [...listA];
-  const newListB = [...listB];
-  let indexA = lastA - 1;
-  let indexB = lastB - 1;
-  let indexMerged = lastA + lastB - 1;
 
-  while (indexB >= 0) {
-    if (indexA >= 0 && newListA[indexA] > newListB[indexB]) {
-      newListA[indexMerged] = newListA[indexA];
-      indexA -= 1;
+const sortedMerge = (list1, list2, m, n) => {
+  // get indexA, indexB and mergedIndex
+  const nums1 = [...list1];
+  const nums2 = [...list2];
+  let indexM = m - 1;
+  let indexN = n - 1;
+  let mergedIndex = m + n - 1;
+
+  // check condition if ele m is greater than ele n
+  while(indexN >= 0) {
+    if(indexM >=0 && nums1[indexM] > nums2[indexN]) {
+      // push element M to last mergedIndex and decrement indexM
+      nums1[mergedIndex] = nums1[indexM];
+      indexM--;
     } else {
-      newListA[indexMerged] = newListB[indexB];
-      indexB -= 1;
+      // push element N to last mergedIndex and decrement indexN
+      nums1[mergedIndex] = nums2[indexN];
+      indexN--;
     }
 
-    indexMerged -= 1;
+    mergedIndex--;
   }
 
-  return newListA;
+  return nums1;
+
 };
 
 module.exports = sortedMerge;

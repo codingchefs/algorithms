@@ -13,3 +13,15 @@ describe('Sorted Merge', () => {
     expect(mergedList).to.deep.equal(expectedResult);
   });
 });
+
+// [8, 12, 13, 14, 18, undefined, undefined, undefined, undefined]
+// [8, 12, 13, 14, 18, undefined, undefined, undefined, 18]
+// [8, 12, 13, 14, 18, undefined, undefined, 14, 18]
+// [8, 12, 13, 14, 18, undefined, undefined, 14, 18]
+// [8, 12, 13, 14, 18, undefined, 13, 14, 18]
+// [8, 12, 13, 14, 18, 12, 13, 14, 18]
+// [8, 12, 13, 14, 10, 12, 13, 14, 18]
+// [8, 12, 13, 8, 10, 12, 13, 14, 18]
+// [8, 12, 6, 8, 10, 12, 13, 14, 18]
+// [8, 4, 6, 8, 10, 12, 13, 14, 18]
+// [2, 4, 6, 8, 10, 12, 13, 14, 18]

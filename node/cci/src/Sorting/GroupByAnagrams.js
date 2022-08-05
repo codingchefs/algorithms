@@ -6,21 +6,23 @@
  */
 
 const groupByAnagrams = (words) => {
+  // create a hashmap
   const map = new Map();
-  words.forEach((word) => {
+  // loop through words.
+  for (const word of words) {
+    // sort the word
     const sortedWord = word.split('').sort().join('');
+    // if the sorted word doesnt exist as key, then create a new key and array and add to list
     const currentValue = map.has(sortedWord) ? map.get(sortedWord) : [];
     currentValue.push(word);
     map.set(sortedWord, currentValue);
-  });
-
-  const groupedList = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of map) {
-    groupedList.push(...value);
   }
 
-  return groupedList;
-};
+  const groupedAnagrams = [];
+  for (const [key, value] of map) {
+    groupedAnagrams.push(...value);
+  }
+  return groupedAnagrams;
+}
 
 module.exports = groupByAnagrams;

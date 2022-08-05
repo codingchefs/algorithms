@@ -9,45 +9,35 @@
  * This code will run in O(log n) if all the elements are unique. However, with many duplicates,
  * the algorithm is actually O(n)
  */
-const searchInRotaryArray = (numbers, left, right, ele) => {
-  // if found in middle
-  const mid = Math.floor((left + right) / 2);
-  if (numbers[mid] === ele) {
-    return mid;
-  }
+const searchInRotaryArray = (nums, target) => {
+  // initialize left, right
+  let left = 0;
+  let right = nums.length - 1;
+  let mid;
+  while (left <= right) {
+    mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) return mid;
 
-  if (left > right) {
-    return -1;
-  }
+    // check if in left half is constant increasing
+    if (nums[mid] >= nums[left]) {
+      if (target <= nums[mid] && target >= nums[left]) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    } else {
+      // else check in right is constant increasing
+      if (target >= nums[mid] && target <= nums[right]) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
 
-  // check to see which half is ordered
-  if (numbers[left] < numbers[mid]) { // left is ordered
-    // check if ele exists in left half
-    if (ele >= numbers[left] && ele < numbers[mid]) {
-      return searchInRotaryArray(numbers, left, mid - 1, ele);
-    }
-    return searchInRotaryArray(numbers, mid + 1, right, ele);
-  }
-
-  if (numbers[left] > numbers[mid]) { // right is ordered
-    if (ele > numbers[mid] && ele <= numbers[right]) {
-      return searchInRotaryArray(numbers, mid + 1, right, ele);
-    }
-    return searchInRotaryArray(numbers, left, mid - 1, ele);
-  }
-
-  if (numbers[left] === numbers[mid]) {
-    if (numbers[mid] !== numbers[right]) {
-      return searchInRotaryArray(numbers, mid + 1, right, ele); // search right
-    }
-    const result = searchInRotaryArray(numbers, left, mid - 1, ele); // search left
-    if (result === -1) {
-      return searchInRotaryArray(numbers, mid + 1, right, ele);
-    }
-    return result;
   }
 
   return -1;
 };
+
 
 module.exports = searchInRotaryArray;
