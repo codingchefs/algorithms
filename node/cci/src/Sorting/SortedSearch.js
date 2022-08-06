@@ -9,12 +9,6 @@
  * solution: We need to exponentially search (1, 2, 4, ...) for each value at index incrementally
  * till we exceed the size of the list and use the index to do binarySearch on the array.
  */
-const binarySearch = require('../../../practice/search/binary');
-
-// eslint-disable-next-line no-extend-native
-Object.defineProperty(Array.prototype, 'elementAt', {
-  value: (value) => this[value] || -1,
-});
 
 /**
  * @param {Array} list
@@ -22,13 +16,30 @@ Object.defineProperty(Array.prototype, 'elementAt', {
  * @returns {number}
  */
 const sortedSearch = (list, value) => {
+  // initialize index to be 1
   let index = 1;
-
-  while (list.elementAt(index) !== -1 && list.elementAt(index) < value) {
+  // loop till element exists and element is less than the element at index in array
+  while (list[index] && value > list[index]) {
     index *= 2;
   }
 
-  return binarySearch(list, value, index / 2, index);
+  return binarySearch(list, value, Math.floor(index / 2), index);
+};
+
+const binarySearch = (list, value, start, end) => {
+  let mid;
+  while (start <= end) {
+    mid = Math.floor((start + end) / 2);
+    if (list[mid] === value) {
+      return mid;
+    } else if (list[mid] < value) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+
+  return -1;
 };
 
 module.exports = sortedSearch;
