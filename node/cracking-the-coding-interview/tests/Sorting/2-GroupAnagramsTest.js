@@ -1,7 +1,7 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const groupByAnagrams = require('../../src/chapter-10-sorting-and-searching/GroupByAnagrams.js');
+const groupByAnagrams = require('../../src/chapter-10-sorting-and-searching/2-GroupByAnagrams.js');
 
 describe('Group Anagrams', () => {
 

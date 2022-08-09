@@ -1,7 +1,7 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const SortedSearch = require('../../src/chapter-10-sorting-and-searching/SortedSearch');
+const SortedSearch = require('../../src/chapter-10-sorting-and-searching/4-SortedSearch');
 
 describe('Sorted Search', () => {
   describe('Given a list of sorted, positive integers', () => {

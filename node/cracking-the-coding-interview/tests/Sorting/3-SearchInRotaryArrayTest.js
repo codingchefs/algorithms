@@ -1,7 +1,7 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const searchInRotaryArray = require('../../src/chapter-10-sorting-and-searching/SearchInRotaryArray.js');
+const searchInRotaryArray = require('../../src/chapter-10-sorting-and-searching/3-SearchInRotaryArray.js');
 
 describe('searchInRotaryArray', () => {
   describe('when a sorted array of integers that has been rotated is passed', () => {

@@ -43,7 +43,7 @@ class LinkedList {
 const createLevelLinkedListRe = (node, lists, level) => {
     if (node == null) return;
 
-    let ll = null;
+    let ll;
     if (lists.length === level) {
         ll = new LinkedList();
         lists.push(ll);
