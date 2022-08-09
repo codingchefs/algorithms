@@ -1,7 +1,7 @@
 const chai = require('chai');
 
 const {expect} = chai;
-const SparseSearch = require('../../src/Sorting/SparseSearch');
+const SparseSearch = require('../../src/chapter-10-sorting-and-searching/SparseSearch');
 
 describe('Sparse Search', () => {
   describe('Given a list of strings with empty string', () => {

@@ -4,7 +4,7 @@
  A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
  */
 
-const TreeNode = require('../cci/src/treengraphs/tree/Node');
+const TreeNode = require('../cracking-the-coding-interview/src/treengraphs/tree/Node');
 const assert = require('assert');
 const pathSum = (root, targetSum) => {
   const paths = [];

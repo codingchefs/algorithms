@@ -1,10 +1,4 @@
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-}
+const Node = require('./TreeNode');
 
 class BinarySearchTree {
     constructor() {
@@ -13,7 +7,7 @@ class BinarySearchTree {
 
     insert(data) {
         // creating a node and initialization with data
-        var newNode = new Node(data);
+        const newNode = new Node(data);
         // root is null then node will be added to the tree and made root.
         if (this.root === null) {
             this.root = newNode;

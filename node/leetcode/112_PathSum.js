@@ -3,7 +3,7 @@
  * that adding up all the values along the path equals targetSum. A leaf is a node with no children.
  */
 
-const TreeNode = require('../cci/src/treengraphs/tree/Node');
+const TreeNode = require('../cracking-the-coding-interview/src/treengraphs/tree/Node');
 const assert = require('assert');
 const hasPathSum = (root, targetSum) => {
   // base case

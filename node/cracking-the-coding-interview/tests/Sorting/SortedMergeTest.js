@@ -1,7 +1,7 @@
 const chai = require('chai');
 
 const { expect } = chai;
-const sortedMerge = require('../../src/Sorting/SortedMerge');
+const sortedMerge = require('../../src/chapter-10-sorting-and-searching/SortedMerge');
 
 describe('Sorted Merge', () => {
   it('merges two sorted arrays correctly', () => {
