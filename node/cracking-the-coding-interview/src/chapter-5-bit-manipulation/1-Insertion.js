@@ -17,31 +17,25 @@ Solution:
 5) shift nValue
 6) merge m_cleared and n_shifted
 */
-
+// N = 1000000000, M = 10011, i = 2, j = 6
 const insertion = (nValue, mValue, i, j) => {
-    // build the left mask left =11100000
+    // build the left mask = 1111000000
     const allOnes = ~0;
-    const left = allOnes << (j+1);
-    // build the right mask right = 00000011
-    const right = ((1 << i) - 1);
-    // merge mask
-    const mask = left | right;
-    // clear mbits
-    const m_cleared = nValue & mask;
+    const left_mask = allOnes << (j + 1);
 
-    // shift nValue
-    const n_shifted = mValue << i;
-    // merge m_cleared & n_shifted
-    return m_cleared | n_shifted;
+    // build right mask = 0000000011
+    const right_mask = (1 << i) - 1;
+
+    // merge both to get final mask = 1111000011
+    const mask = left_mask | right_mask;
+
+    // clear n for the mask bits = 1000000000
+    const n_cleared = nValue & mask;
+    // shift m to i = 0001001100
+    const m_shifted = mValue << i;
+
+    // merge m_cleared and n_shifted = 1001001100
+    return n_cleared | m_shifted;
 };
 
-const N = 1201;
-const M = 8;
-const i = 3;
-const j = 6;
-const result = insertion(N, M, i, j);
-console.log(result, result.toString(2));
-
-// 10,709.59
-// 129,286.11
-// 55,864.48
+module.exports = insertion;
