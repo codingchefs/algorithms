@@ -8,31 +8,31 @@
  * Solution: check if last bit is 1, then track the length,
  * if last bit is 0, then check if last 2 digits is 0, then reset the length.
  * otherwise preserve previous length and add to currentLength
- *
+ * example: 11011101111
  */
 
+// 1 0 1
 const FlipBitToWin = (a) => {
-  // initiate currentLength, previousLength, maxLength
+  // initialize currentLength, PreviousLength
   let currentLength = 0;
   let previousLength = 0;
   let maxLength = 1;
-  // loop while a is not equal to 0
+
+  // loop till a doesnt become zero
   while (a !== 0) {
     // check if last digit is 1
-    if ((a & 1) === 1) {
-      // increase currentLength
+    if (a & 1 === 1) {
+      // increment current length
       currentLength++;
-      // check if last digit is 0
-    } else if ((a & 1) === 0) {
-      // check if last 2 digits is 0, reset previous length to 0 else set currentLength
-      previousLength = (a & 2) === 0 ? 0 : currentLength;
-      // currentLength 0
-      currentLength = 0;
+    } else {
+      // check if last two digits is zero, set previousLength = 0, otherwise currentLength
+      previousLength = (a & 2 === 0) ? 0 : currentLength;
+      // set currentLength to zero
+      currentLength = 0; // 0
     }
-
-    // set maxLength
-    maxLength = Math.max(previousLength + currentLength + 1, maxLength);
-    // right shift a
+    // find maxLength
+    maxLength = Math.max(currentLength + previousLength + 1, maxLength);
+    // right shift a by 1
     a = a >>> 1;
   }
   return maxLength;
