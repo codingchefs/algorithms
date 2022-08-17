@@ -11,9 +11,12 @@ const swapOddEvenBits = (x) => {
     return (((x & 0xaaaaaaaa) >>> 1) | ((x & 0x55555555) << 1 ));
 };
 
+module.exports = swapOddEvenBits;
+
 // 00010111
 // even bits: 0 0 0 1
-// odd bits: 0 1 1 1
+// odd bits:  0 1 1 1
+// 00101011
 
 /*
 00010111
@@ -24,14 +27,13 @@ const swapOddEvenBits = (x) => {
 00010111
 01010101
 --------
+00010101
+
 00101010
 00000001
 ---------
 00101011
  */
-
-// 00101011
-console.log(swapOddEvenBits(23));
 
 // output
 // 00101011
