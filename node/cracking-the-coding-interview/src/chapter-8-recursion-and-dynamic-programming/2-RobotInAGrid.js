@@ -7,44 +7,39 @@
 const RobotInAGrid = (maze) => {
   if (!maze || !maze.length) return null;
 
-  let path = [];
-
-  let failedPoints = new Set();
-
+  const path = [];
+  const failedPoints = new Set();
   if (getPath(maze, maze.length - 1, maze[0].length - 1, path, failedPoints)) {
     return path;
   }
 
   return null;
 };
+
 // 0 - space, 1 obstacle
 const getPath = (maze, row, col, path, failedPoints) => {
-  // check if col or row is exhausted, or if it is blocker
-  if (col < 0 || row < 0 || maze[row][col]) {
+  // check if row or column is less than zero or a obstacle is hit
+  if (row < 0 || col < 0 || maze[row][col]) {
     return false;
   }
 
-  // build row col index
-  const p = `${row}x${col}`;
-
-  // check if failedPoints has p
-  if (failedPoints.has(p)) {
+  // check if point has no path from cache
+  const point = `${row}x${col}`;
+  if (failedPoints.has(point)) {
     return false;
   }
 
   // check if it is at origin
   const isAtOrigin = (row === 0 && col === 0);
 
-  // if it is origin or if path for  col or row traverse returns true, add point to path
-  if (isAtOrigin
-    || getPath(maze, row, col - 1, path, failedPoints)
-    || getPath(maze, row - 1, col, path, failedPoints)
-  ) {
-    path.push(p);
+  if (isAtOrigin ||
+    getPath(maze, row, col - 1, path, failedPoints) ||
+    getPath(maze, row - 1, col, path, failedPoints)) {
+    path.push(point);
     return true;
   }
 
-  failedPoints.add(p);
+  failedPoints.add(point);
   return false;
 };
 

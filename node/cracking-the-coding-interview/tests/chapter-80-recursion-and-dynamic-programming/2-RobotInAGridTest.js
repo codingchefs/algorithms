@@ -4,6 +4,20 @@ const RobotInAGrid = require('../../src/chapter-8-recursion-and-dynamic-programm
 
 describe('Robot in a Grid', () => {
 
+  it('Given a null maze, return null path from the top left to bottom right', () => {
+    const expectedResult = null;
+    const result = RobotInAGrid();
+
+    expect(result).to.deep.equal(expectedResult);
+  });
+
+  it('Given a empty maze, return null path from the top left to bottom right', () => {
+    const expectedResult = null;
+    const result = RobotInAGrid([]);
+
+    expect(result).to.deep.equal(expectedResult);
+  });
+
   it('Given a maze with obstacles denoted by 1, return a path from the top left to bottom right', () => {
     const expectedResult = [
       '0x0',
@@ -20,13 +34,6 @@ describe('Robot in a Grid', () => {
       [1, 0, 0, 1],
       [1, 1, 0, 0]
     ]);
-
-    expect(result).to.deep.equal(expectedResult);
-  });
-
-  it('Given a empty maze with obstacles denoted by 1, return null path from the top left to bottom right', () => {
-    const expectedResult = null;
-    const result = RobotInAGrid([]);
 
     expect(result).to.deep.equal(expectedResult);
   });
