@@ -12,31 +12,26 @@ const MagicFast = (array) => {
 // -10, -5, 2, 2, 2, [3], 4, 7, 9, 12, 13
 const magicFastImpl = (array, start, end) => {
   // end condition
-  if(end < start) return -1;
+  if (end < start) return -1;
 
-  // get midIndex and midValue
-  let midIndex = Math.floor((start + end) /2);
-  let midValue = array[midIndex];
+  // find mid element
+  const midIndex = Math.floor((start + end) / 2);
+  const midValue = array[midIndex];
 
   // check if midIndex and midValue are same, return index
-  if(midValue === midIndex) {
-    return midIndex;
-  }
+  if (midIndex === midValue) return midIndex;
 
-  /* Search left - get minimum of midIndex left element and midValue */
+  // search left part - get minimum of midIndex left element and midValue
   const leftIndex = Math.min(midIndex - 1, midValue);
   // get left index
   const left = magicFastImpl(array, start, leftIndex);
   // if left greater than zero, return left
-  if(left >= 0) {
-    return left;
-  }
+  if (left >= 0) return left;
 
-  /* Search right - get max of midIndex right element and midValue */
-  let rightIndex = Math.max(midIndex + 1, midValue);
+  // search right part - get max of midIndex right element and midValue
+  const rightIndex = Math.max(midIndex + 1, midValue);
   // get right index
-  let right = magicFastImpl(array, rightIndex, end);
-
+  const right = magicFastImpl(array, rightIndex, end);
   return right;
 };
 
