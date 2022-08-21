@@ -5,21 +5,20 @@
  */
 
 const PowerSet = (nums) => {
-  const subsets = [];
-  generateSubSets(0, nums, [], subsets);
-  return subsets;
+  const result = [];
+  // call gs recursively
+  generateSubSets(0, nums, [], result);
+  return result;
 };
 
 const generateSubSets = (index, nums, current, subsets) => {
-  // console.log(`gs(${index}, ${JSON.stringify(current)})`);
   // base case
   if (index === nums.length) {
-    subsets.push(current.slice())
-    // console.log(`subsets: ${JSON.stringify(subsets)}`);
+    subsets.push(current.slice());
     return;
   }
 
-  // dfs recursive case
+  // recurse on dfs
 
   // exclude
   generateSubSets(index + 1, nums, current, subsets);
