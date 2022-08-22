@@ -7,23 +7,26 @@
  */
 
 const minProduct = (a, b) => {
+  // find smaller number
+  const smaller = a < b ? a : b;
   const bigger = a < b ? b : a;
-  let smaller = a < b ? a : b;
   return minProductHelper(smaller, bigger);
 };
 
 const minProductHelper = (smaller, bigger) => {
+  // base case for 0 and 1
   if (smaller === 0) return 0;
   else if (smaller === 1) return bigger;
-
-  // divide by 2
+  // get half product by recursively calling by smaller/2
   const s = smaller >> 1;
-  const halfProd = minProductHelper(s, bigger);
+  const halfProduct = minProductHelper(s, bigger);
 
+  // check if it is even, then add halfProduct twice
   if (smaller % 2 === 0) {
-    return halfProd + halfProd;
+    return halfProduct + halfProduct;
   } else {
-    return halfProd + halfProd + bigger;
+    // else add halfProduct twice and also bigger number
+    return halfProduct + halfProduct + bigger;
   }
 };
 
