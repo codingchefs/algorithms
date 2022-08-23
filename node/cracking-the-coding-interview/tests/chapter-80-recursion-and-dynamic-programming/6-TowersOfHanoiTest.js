@@ -4,7 +4,7 @@ const TowersOfHanoi = require('../../src/chapter-8-recursion-and-dynamic-program
 
 describe('Towers Of Hanoi', () => {
 
-  it('Given two positive integers with one of them 0, return 0 as result of multiply', () => {
+  it('Given n discs, return destination tower with right discs after movement', () => {
     const expectedResult = {
       "disks": {
         "items": [
