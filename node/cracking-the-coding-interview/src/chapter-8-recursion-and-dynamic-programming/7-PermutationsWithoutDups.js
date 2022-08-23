@@ -16,20 +16,19 @@ const swap = (a, i, j) => {
 };
 
 const permute = (str, left, right, result) => {
-  // console.log(str, left, right, result);
   // if left is equal to right, then push into result
-  if (left === right) {
+  if(left === right) {
     result.push(str);
   } else {
-    // iterate from left to right
-    for (let i = left; i <= right; i++) {
-      // get swapped element
+    // iterate through left to right
+    for(let i = left; i <= right; i++) {
+      // get swapped string
       const swapped = swap(str, left, i);
-      // console.log(`calling permute on ${swapped}`);
-      // permute swapped incrementing left
+      // permute swapped string with incrementing left
       permute(swapped, left + 1, right, result);
     }
   }
+
 }
 
 module.exports = PermutationsWithoutDups;
