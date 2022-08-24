@@ -12,15 +12,17 @@ const Parens = (n) => {
 };
 
 const backTrack = (output_arr, current_string, open, close, max) => {
-  if (current_string.length === max * 2) {
+  // check if current_string is double the max, add it to output
+  if(current_string.length === 2 * max) {
     output_arr.push(current_string);
     return;
   }
 
-  if (open < max) {
-    backTrack(output_arr, current_string + '(', open + 1, close, max)
+  if(open < max) {
+    backTrack(output_arr, current_string + '(', open + 1, close, max);
   }
-  if (close < open) {
+
+  if(close < open) {
     backTrack(output_arr, current_string + ')', open, close + 1, max);
   }
 };
