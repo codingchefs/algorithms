@@ -19,4 +19,19 @@ describe('PaintFill', () => {
     expect(result).to.deep.equal(expectedResult);
   });
 
+  it('Given a screen, a point and color with same color, return the same screen back', () => {
+    const expectedResult = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+    ];
+
+    const result = PaintFill([
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+    ], 0, 0, 0);
+    expect(result).to.deep.equal(expectedResult);
+  });
+
 });

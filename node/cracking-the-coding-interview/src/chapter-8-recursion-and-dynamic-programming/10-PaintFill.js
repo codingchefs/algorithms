@@ -7,7 +7,7 @@
  * change it to newColot
  */
 const PaintFill = (image, sr, sc, newColor) => {
-  if (image[sr][sc] === newColor) return;
+  if (image[sr][sc] === newColor) return image;
   fill(image, sr, sc, image[sr][sc], newColor)
   return image;
 };
