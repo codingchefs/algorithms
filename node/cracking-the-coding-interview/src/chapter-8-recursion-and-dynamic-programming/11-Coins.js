@@ -3,19 +3,24 @@
  * write code to calculate the number of ways of representing n cents.
  */
 const CoinChange = (amount, coins) => {
+  // create empty array of amount + 1 and fill with zeroes
   const combinations = new Array(amount + 1).fill(0);
+  // initialize 0th element to 1
   combinations[0] = 1;
-
-  for (let coin of coins) {
-    for (let i = 1; i < combinations.length; i++) {
-      // if amount >= coin then combinations[amount]+= combinations[amount-coin]
-      if (i >= coin) {
+  // iterate through coins
+  for(const coin of coins) {
+    // iterate through amount
+    for(let i = 1; i < amount +1; i++) {
+      // if i >= coin, then add the (i-coin)th element
+      if(i >= coin) {
         combinations[i] += combinations[i - coin];
       }
     }
   }
 
+  // return the result
   return combinations[amount];
+
 };
 
 module.exports = CoinChange;
