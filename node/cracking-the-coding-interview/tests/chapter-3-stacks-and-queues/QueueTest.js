@@ -1,13 +1,9 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Queue = require('../../src/Queue/Queue');
+const Queue = require('../../src/chapter-3-stacks-and-queues/Queue');
 
 describe("Queue - Test Methods", function() {
-
-  beforeEach(function() {
-
-  });
 
   it("tests enqueue and dequeue", function() {
     const queue = new Queue();

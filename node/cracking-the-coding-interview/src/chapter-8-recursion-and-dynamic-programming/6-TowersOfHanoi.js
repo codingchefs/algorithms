@@ -10,7 +10,7 @@
  * simulation: https://www.mathsisfun.com/games/towerofhanoi.html
  */
 
-const Stack = require('../Queue/Stack');
+const Stack = require('../chapter-3-stacks-and-queues/Stack');
 class Tower {
   disks;
   index;

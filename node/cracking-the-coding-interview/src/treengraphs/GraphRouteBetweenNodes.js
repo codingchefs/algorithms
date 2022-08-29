@@ -1,4 +1,4 @@
-const Queue = require('../Queue/Queue');
+const Queue = require('../chapter-3-stacks-and-queues/Queue');
 class Graph {
   constructor(noOfVertices) {
     this.noOfVertices = noOfVertices;

@@ -18,15 +18,13 @@ class Stack {
 
   // peek the first element
   peek() {
-    if(this.isEmpty()) {
-      return 'No Elements in the Stack';
-    }
-    return this.items[this.items.length -1];
+    if(!this.isEmpty()) return this.items[this.size() - 1];
+    return 'No Elements in the Stack';
   }
 
   // isEmpty
   isEmpty() {
-    return (this.items.length === 0);
+    return this.items.length === 0;
   }
 
   // size
@@ -36,7 +34,7 @@ class Stack {
 
   // print
   print() {
-    for(let i=0; i < this.size(); i++) {
+    for(let i = 0; i < this.size() - 1; i++) {
       console.log(this.items[i]);
     }
   }

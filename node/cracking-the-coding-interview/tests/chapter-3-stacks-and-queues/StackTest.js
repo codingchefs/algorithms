@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Stack = require('../../src/Queue/Stack');
+const Stack = require('../../src/chapter-3-stacks-and-queues/Stack');
 
 describe("Stack - Test Methods", function() {
 
