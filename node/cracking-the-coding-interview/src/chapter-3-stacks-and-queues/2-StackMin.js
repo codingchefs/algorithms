@@ -4,23 +4,27 @@
  */
 
 const Stack = require('./Stack');
+
 class StackWithMin extends Stack {
   minStack;
+
   constructor() {
     super();
     this.minStack = new Stack();
   }
 
   push(value) {
-    if(value <= this.min()) {
+    // check if value is less than min, push to stack
+    if (value <= this.min()) {
       this.minStack.push(value);
     }
     super.push(value);
   }
 
-  pop(){
+  pop() {
+    // check if popped value is equal to min value, then pop it from minStack
     const value = super.pop();
-    if(value === this.min()){
+    if (value === this.min()) {
       this.minStack.pop();
     }
 
@@ -28,7 +32,8 @@ class StackWithMin extends Stack {
   }
 
   min() {
-    if(this.minStack.isEmpty()) {
+    // if minStack is empty, return max value, otherwise return peek
+    if (this.minStack.isEmpty()) {
       return Number.MAX_VALUE;
     }
 
