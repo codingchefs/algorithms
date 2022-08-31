@@ -33,16 +33,14 @@ class FixedMultiStack {
     }
 
     const topIndex = this.indexOfTop(stackNum);
-    const value = this.values[topIndex]; // Get top
+    const value = this.values[topIndex];
     this.values[topIndex] = 0;
     this.sizes[stackNum]--;
     return value;
   }
 
   peek(stackNum) {
-    if (this.isEmpty(stackNum)) {
-      return 'EmptyStackException';
-    }
+    if (this.isEmpty(stackNum)) return 'EmptyStackException';
     return this.values[this.indexOfTop(stackNum)];
   }
 

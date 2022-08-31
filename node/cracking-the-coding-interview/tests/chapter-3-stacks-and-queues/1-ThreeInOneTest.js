@@ -8,8 +8,12 @@ describe("Stack - Three in One", () => {
   it("tests push and pop", function() {
     const stack = new FixedMultiStack(3);
 
+    expect(stack.pop(0)).to.equal('EmptyStackException');
     expect(stack.pop(1)).to.equal('EmptyStackException');
+    expect(stack.pop(2)).to.equal('EmptyStackException');
+    expect(stack.isEmpty(0)).to.be.true;
     expect(stack.isEmpty(1)).to.be.true;
+    expect(stack.isEmpty(2)).to.be.true;
 
     stack.push(0, 10);
     stack.push(0, 20);
