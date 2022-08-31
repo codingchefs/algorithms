@@ -72,9 +72,42 @@ the data structure in the same order that they are added.
 ### Implementation
 #### General Implementation
 ```javascript
+class Queue {
+  constructor() {
+    this.items = [];
+  }
 
+  // to add elements
+  enqueue(item) {
+    this.items.push(item);
+  }
+
+  // to delete elements
+  dequeue() {
+    if (!this.isEmpty()) return this.items.shift();
+    return 'Underflow';
+  }
+
+  // get the front element
+  front() {
+    if (!this.isEmpty()) return this.items[0];
+    return 'No Elements in the Queue';
+  }
+
+  // size
+  size() {
+    return this.items.length;
+  }
+
+  // isEmpty
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
 ```
 #### Linked list Implementation
 ```javascript
 
 ```
+### Use cases
+* Queues are often used in breadth-first search or in implementing a cache.
