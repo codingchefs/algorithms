@@ -10,9 +10,11 @@ describe("Stack - QueueViaStacks", () => {
 
     queue.add(1);
     queue.add(2);
+    expect(queue.peek()).to.equal(1);
     queue.add(3);
-
+    expect(queue.size()).to.equal(3);
     expect(queue.remove()).to.equal(1);
+    expect(queue.peek()).to.equal(2);
     expect(queue.remove()).to.equal(2);
   });
 
