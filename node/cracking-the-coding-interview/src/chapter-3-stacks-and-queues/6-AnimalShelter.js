@@ -6,7 +6,8 @@
  * enqueue, dequeueAny, dequeueDog, and dequeueCat. You may use the built-in Linkedlist data structure.
  */
 
-const { LinkedList } = require('../LinkedLists/LinkedList');
+const {LinkedList} = require('../LinkedLists/LinkedList');
+
 class Animal {
   #order;
   _name;
@@ -15,8 +16,8 @@ class Animal {
     this._name = n;
   }
 
-  setOrder(ord) {
-    this.#order = ord;
+  setOrder(order) {
+    this.#order = order;
   }
 
   getOrder() {
@@ -26,7 +27,6 @@ class Animal {
   isOlderThan(a) {
     return this.#order < a.getOrder();
   }
-
 }
 
 
@@ -35,23 +35,28 @@ class AnimalQueue {
   cats = new LinkedList();
   #order = 0;
 
-  enqueue(a) {
-    a.setOrder(this.#order);
+  enqueue(animal) {
+    animal.setOrder(this.#order);
     this.#order++;
 
-    if (a instanceof Dog) this.dogs.push(a);
-    else if (a instanceof Cat) this.cats.push(a);
-
+    // if instance is Dog, add to dogs linkedlist
+    if (animal instanceof Dog) {
+      this.dogs.push(animal);
+    } else if (animal instanceof Cat) {
+      // if instance is cat, add to cats linkedlist
+      this.cats.push(animal);
+    }
   }
 
   dequeueAny() {
-    /* Look at tops of dog and cat queues, and pop the queue with the oldest value. */
+    // check size of each queue
     if (this.dogs.size() === 0) {
       return this.dequeueCats();
     } else if (this.cats.size() === 0) {
       return this.dequeueDogs();
     }
 
+    // check which object is older
     const dog = this.dogs.getLast();
     const dogObj = new Dog(dog.data._name);
     dogObj.setOrder(dog.data.getOrder());
