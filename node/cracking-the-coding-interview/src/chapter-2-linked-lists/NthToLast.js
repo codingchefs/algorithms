@@ -5,7 +5,7 @@
  * 4. Return p2.
  * @param head
  * @param k
- * @returns {((value?: any) => IteratorResult<any>) | ((value?: any) => Promise<IteratorResult<any>>) | Node | * | LLNode|null}
+ * @returns {any}
  */
 const nthToLast = (head, k) => {
   //define p1 and p2
