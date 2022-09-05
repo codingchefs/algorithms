@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const MergeKSortedList = require('../../src/LinkedLists/Merge-K-Sorted-Lists');
-const { LinkedList } = require('../../src/LinkedLists/LinkedList');
+const MergeKSortedList = require('../../src/chapter-2-linked-lists/Merge-K-Sorted-Lists');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - Merge K Sorted List", () => {
 

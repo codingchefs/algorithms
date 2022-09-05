@@ -6,7 +6,7 @@
  * enqueue, dequeueAny, dequeueDog, and dequeueCat. You may use the built-in Linkedlist data structure.
  */
 
-const {LinkedList} = require('../LinkedLists/LinkedList');
+const {LinkedList} = require('../chapter-2-linked-lists/LinkedList');
 
 class Animal {
   #order;

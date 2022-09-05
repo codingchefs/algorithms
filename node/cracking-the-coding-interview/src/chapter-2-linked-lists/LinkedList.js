@@ -6,10 +6,12 @@ class Node {
 }
 
 class LinkedList {
+
   constructor(head, length = 0 ) {
     this.head = head;
     this.length = length;
   }
+
   unshift(data){
     const newNode = new Node(data, this.head);
     this.length++;

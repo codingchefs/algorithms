@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { addLists } = require('../../src/LinkedLists/SumLists');
-const { LinkedList } = require('../../src/LinkedLists/LinkedList');
+const { addLists } = require('../../src/chapter-2-linked-lists/SumLists');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - add lists", function() {
   let ll1;

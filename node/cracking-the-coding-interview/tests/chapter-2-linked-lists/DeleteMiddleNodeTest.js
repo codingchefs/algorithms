@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const deleteMiddleNode = require('../../src/LinkedLists/DeleteMiddleNode');
-const LinkedList = require('../../src/LinkedLists/LinkedList');
+const deleteMiddleNode = require('../../src/chapter-2-linked-lists/DeleteMiddleNode');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
-describe.skip("Linked List - Delete Middle Node", function() {
+describe("Linked List - Delete Middle Node", function() {
   let ll;
 
   beforeEach(function() {

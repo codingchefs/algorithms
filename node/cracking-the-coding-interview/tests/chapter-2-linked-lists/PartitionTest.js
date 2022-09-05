@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { partition } = require('../../src/LinkedLists/Partition');
-const LinkedList = require('../../src/LinkedLists/LinkedList');
+const { partition } = require('../../src/chapter-2-linked-lists/Partition');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
-describe.skip("Linked List - Partition", function() {
+describe("Linked List - Partition", function() {
   let ll;
 
   beforeEach(function() {

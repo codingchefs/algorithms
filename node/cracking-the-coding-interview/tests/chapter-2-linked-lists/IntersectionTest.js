@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
+// FIXME: failing 1 test
+const { findIntersection, getIntersection } = require('../../src/chapter-2-linked-lists/Intersection');
+const { LinkedList, Node } = require('../../src/chapter-2-linked-lists/LinkedList');
 
-const { findIntersection, getIntersection } = require('../../src/LinkedLists/Intersection');
-const { LinkedList, Node } = require('../../src/LinkedLists/LinkedList');
-
-describe.skip("Linked List - is there intersection?", function() {
+describe("Linked List - is there intersection?", function() {
   let ll1;
   let ll2;
 

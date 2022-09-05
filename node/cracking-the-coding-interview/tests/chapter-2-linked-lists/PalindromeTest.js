@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const isPalindrome = require('../../src/LinkedLists/Palindrome');
-const { LinkedList } = require('../../src/LinkedLists/LinkedList');
+const isPalindrome = require('../../src/chapter-2-linked-lists/Palindrome');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - is Palindrome?", function() {
   let ll;

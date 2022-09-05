@@ -1,9 +1,9 @@
 const chai = require("chai");
 const expect = chai.expect;
-const nthToLast = require('../../src/LinkedLists/NthToLast');
-const LinkedList = require('../../src/LinkedLists/LinkedList');
+const nthToLast = require('../../src/chapter-2-linked-lists/NthToLast');
+const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
-describe.skip("Linked List - Return Kth to Last", function() {
+describe("Linked List - Return Kth to Last", function() {
   let ll;
 
   before(function() {
