@@ -14,9 +14,13 @@ describe("Linked List - Remove Duplicates", () => {
     ll.push(2);
 
 
+    const expectedll = new LinkedList();
+    expectedll.push(2);
+    expectedll.push(1);
+    expectedll.push(3);
+
     const res = deleteDups(ll.head);
-    expect(res).to.equal(true);
-    expect(ll.head.next.next.next).to.equal(null);
+    expect(res).to.deep.equal(expectedll.head);
   });
 
 });
