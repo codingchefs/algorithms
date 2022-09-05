@@ -1,4 +1,6 @@
 /**
+ * Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
+ * Solution:
  * 1. Define p1 and p2 initialized to Head.
  * 2. Move p1 to k position and
  * 3. Move p1 and p2 till p1 reaches end.
@@ -7,7 +9,7 @@
  * @param k
  * @returns {any}
  */
-const nthToLast = (head, k) => {
+const returnKthToLast = (head, k) => {
   //define p1 and p2
   let p1 = head;
   let p2 = head;
@@ -28,4 +30,4 @@ const nthToLast = (head, k) => {
 
 };
 
-module.exports = nthToLast;
+module.exports = returnKthToLast;

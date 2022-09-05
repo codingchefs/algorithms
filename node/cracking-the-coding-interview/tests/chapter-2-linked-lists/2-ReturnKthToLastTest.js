@@ -1,6 +1,6 @@
 const chai = require("chai");
 const expect = chai.expect;
-const nthToLast = require('../../src/chapter-2-linked-lists/NthToLast');
+const nthToLast = require('../../src/chapter-2-linked-lists/2-ReturnKthToLast');
 const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - Return Kth to Last", function() {
