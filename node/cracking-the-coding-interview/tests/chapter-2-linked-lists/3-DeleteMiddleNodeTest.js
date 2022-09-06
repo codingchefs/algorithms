@@ -23,7 +23,8 @@ describe("Linked List - Delete Middle Node", function() {
     expect(ll.head.next.next.data).to.equal('d');
   });
 
-  it("Returns false if `f` element is deleted", function() {
+  // problem cannot be solved if the node to be deleted is the last node in the linked list
+  it("Returns false if `f` the last element is deleted", function() {
     const res = deleteMiddleNode(ll.head.next.next.next.next.next);
     expect(res).to.equal(false);
     expect(ll.head.next.next.next.next.next.data).to.equal('f');
