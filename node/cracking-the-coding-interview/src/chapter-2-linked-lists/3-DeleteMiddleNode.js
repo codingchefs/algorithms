@@ -13,6 +13,7 @@ const deleteMiddleNode = (n) => {
   if(!n || !n.next) return false;
 
   let nextNode = n.next;
+  // copy data of next element
   n.data = nextNode.data;
   n.next = nextNode.next;
   return true;
