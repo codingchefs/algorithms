@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const deleteMiddleNode = require('../../src/chapter-2-linked-lists/DeleteMiddleNode');
+const deleteMiddleNode = require('../../src/chapter-2-linked-lists/3-DeleteMiddleNode');
 const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - Delete Middle Node", function() {
@@ -32,6 +32,11 @@ describe("Linked List - Delete Middle Node", function() {
   it("Returns false if empty linked list is passed", function() {
     const emptyLL = new LinkedList();
     const res = deleteMiddleNode(emptyLL);
+    expect(res).to.equal(false);
+  });
+
+  it("Returns false if nothing is passed", function() {
+    const res = deleteMiddleNode();
     expect(res).to.equal(false);
   });
 
