@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { partition } = require('../../src/chapter-2-linked-lists/Partition');
+const { partition } = require('../../src/chapter-2-linked-lists/4-Partition');
 const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
 describe("Linked List - Partition", function() {
