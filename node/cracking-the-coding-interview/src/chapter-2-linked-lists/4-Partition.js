@@ -30,6 +30,7 @@ const {LinkedList} = require('./LinkedList');
 * @param node
 * @param x - number to partition by
 * @returns {*|null}
+* ex: 3 -> 2 -> 1 -> (5) -> 8 -> 5 -> 10, 5
 */
 const partition = (node, x) => {
   // create a before linkedlist
@@ -53,10 +54,11 @@ const partition = (node, x) => {
     // move to next node
     node = node.next;
   }
-  // make after next to null
-  after.next = null;
-  // make before.next point to afterHead
-  before.next = after_head;
+  // make after next to undefined to avoid circular reference
+  after.next = undefined;
+  // merge the two linked lists and return
+  before.next = after_head.next;
+  return before_head.next;
 };
 
  /*
