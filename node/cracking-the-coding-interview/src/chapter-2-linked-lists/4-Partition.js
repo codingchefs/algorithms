@@ -32,31 +32,31 @@ const {LinkedList} = require('./LinkedList');
 * @returns {*|null}
 */
 const partition = (node, x) => {
-  let before_head = new LinkedList();
+  // create a before linkedlist
+  const before_head = new LinkedList();
   let before = before_head;
-
-  let after_head = new LinkedList();
+  // create a after linkedlist
+  const after_head = new LinkedList();
   let after = after_head;
-
+  // loop through node
   while(node) {
+    // if element is greater less than x,
     if(node.data < x) {
-      // add to before list
+      // add it to before and move to next
       before.next = node;
       before = before.next;
     } else {
-      // add to after list
+      // else add it to after and move to next
       after.next = node;
       after = after.next;
     }
-
+    // move to next node
     node = node.next;
   }
-
-  after.next = undefined;
-  // connect after list to before list at the end
-  before.next = after_head.next;
-
-  return before_head.next;
+  // make after next to null
+  after.next = null;
+  // make before.next point to afterHead
+  before.next = after_head;
 };
 
  /*
