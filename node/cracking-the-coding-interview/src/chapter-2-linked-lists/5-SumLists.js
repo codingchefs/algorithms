@@ -23,33 +23,32 @@ const { Node } = require('./LinkedList');
  */
 const addLists = (l1, l2) => {
   // first define a empty node and a iterator to it
-  let result = new Node();
-  let result_iter = result;
+  const result = new Node();
+  let result_iter = result
   let carry = 0;
 
-  // loop through the l1 and l2 till both are completely traversed
   while(l1 || l2) {
     // get the sum of values of l1 and l2 nodes
-    let l1_val = l1 ? l1.data : 0;
-    let l2_val = l2 ? l2.data : 0;
+    const l1_val = l1?.data || 0;
+    const l2_val = l2?.data || 0;
 
-    let sum = l1_val + l2_val + carry;
+    const sum = l1_val + l2_val + carry;
 
     // find last digit and carry
     carry = Math.floor(sum / 10);
 
-    let last_digit = sum % 10;
-    let new_node = new Node(last_digit);
+    const last_digit = sum % 10;
+    const new_node = new Node(last_digit)
     result_iter.next = new_node;
 
     // go to next iterator `if exists`
-    if(l1) l1 = l1.next;
-    if(l2) l2 = l2.next;
+    l1 = l1 && l1.next;
+    l2 = l2 && l2.next;
     result_iter = result_iter.next;
   }
   // add a new node for carry over if any left
-  if(carry > 0) {
-    let new_node = new Node(carry);
+  if(carry > 0){
+    const new_node= new Node(carry);
     result_iter.next = new_node;
   }
 

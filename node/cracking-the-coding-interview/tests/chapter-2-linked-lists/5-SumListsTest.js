@@ -1,10 +1,10 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { addLists } = require('../../src/chapter-2-linked-lists/SumLists');
+const { addLists } = require('../../src/chapter-2-linked-lists/5-SumLists');
 const { LinkedList } = require('../../src/chapter-2-linked-lists/LinkedList');
 
-describe("Linked List - add lists", function() {
+describe("Linked List - sum lists", function() {
   let ll1;
   let ll2;
 
@@ -24,7 +24,7 @@ describe("Linked List - add lists", function() {
     expect(res).to.deep.equal(expected.head);
   });
 
-  it("Returns `1312` as sum of Linked lists for `617` and `695`", function() {
+  it("Returns `1312` as sum of Linked lists for `617` and `695`", () => {
     ll1.convertArrayToLinkedList([7, 1, 6]);
     ll2.convertArrayToLinkedList([5, 9, 6]);
 
@@ -35,9 +35,20 @@ describe("Linked List - add lists", function() {
     expect(res).to.deep.equal(expected.head);
   });
 
-  it("Returns `756` as sum of Linked lists for `61` and `695`", function() {
+  it("Returns `756` as sum of Linked lists for `61` and `695`", () => {
     ll1.convertArrayToLinkedList([1, 6]);
     ll2.convertArrayToLinkedList([5, 9, 6]);
+
+    const expected = new LinkedList();
+    expected.convertArrayToLinkedList([6, 5, 7]);
+
+    const res = addLists(ll1.head, ll2.head);
+    expect(res).to.deep.equal(expected.head);
+  });
+
+  it("Returns `756` as sum of Linked lists for `695` and `61`", () => {
+    ll1.convertArrayToLinkedList([5, 9, 6]);
+    ll2.convertArrayToLinkedList([1, 6]);
 
     const expected = new LinkedList();
     expected.convertArrayToLinkedList([6, 5, 7]);
