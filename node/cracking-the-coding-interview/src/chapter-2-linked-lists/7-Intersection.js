@@ -5,7 +5,9 @@
  * of the second linked list, then they are intersecting.
  * example: 3 -> 1 -> 5 -> 9 -> (7) -> 2 -> 1
  *                    4 -> 6 -> (7) -> 2 -> 1
- * Solution:
+ * Solution: loop through listA and listB at the same time, if listA exhausts, point pointer_a to list b, and if listB
+ * exhausts, point pointer_b to list a. In the second loop when both lists start from same length, compare both pointers
+ * to see if they are equal and return.
  * @param headA
  * @param headB
  * @returns {null|*}
