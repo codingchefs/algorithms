@@ -12,17 +12,17 @@
  * @returns {boolean}
  */
 const isPalindrome = (head) => {
-  // define slow variabel iterating normally and fast variable iterating through 2 nodes
+  // define slow variable and fast variable
   let slow = head;
   let fast = head;
 
-  // iterate through till fast exhausts the list
+  // loop through head and increment fast double than slow
   while (fast && fast.next) {
     slow = slow.next;
     fast = fast.next.next;
   }
 
-  // reverse the slow list
+  // get reverse of slow
   slow = reversed(slow);
 
   // reset fast to head (left half of the list)
