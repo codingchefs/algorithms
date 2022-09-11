@@ -13,6 +13,15 @@ describe("Linked List - is there intersection?", function() {
     ll2 = new LinkedList();
   });
 
+  it("Returns `null` when one of the lists is null", () => {
+    ll1.convertArrayToLinkedList([2, 6, 4]);
+
+    const expected = null;
+
+    const res = getIntersection(ll1.head, null);
+    expect(res).to.deep.equal(expected);
+  });
+
   it("Returns `head` when intersection is found between linked lists 1", function() {
     ll1.convertArrayToLinkedList([3, 1, 5, 9, 7, 2, 1]);
     ll2.convertArrayToLinkedList([4, 6, 7, 2, 1]);
@@ -35,7 +44,7 @@ describe("Linked List - is there intersection?", function() {
     expect(res).to.deep.equal(expected.head);
   });
 
-  it("Returns `null` when intersection is NOT found between linked lists", () => {
+  it("Returns `undefined` when intersection is NOT found between linked lists", () => {
     ll1.convertArrayToLinkedList([2, 6, 4]);
     ll2.convertArrayToLinkedList([1, 5]);
 
