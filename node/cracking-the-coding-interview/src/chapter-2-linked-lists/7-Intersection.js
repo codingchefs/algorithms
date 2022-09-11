@@ -13,20 +13,26 @@
  * @returns {null|*}
  */
 const getIntersection = (headA, headB) => {
+  // check for null list
   if (!headA || !headB) return null;
-
+  // initialize pointer_a and pointer_b
   let a_pointer = headA;
   let b_pointer = headB;
+  // iterate through the lists to see if both are equal
   while (JSON.stringify(a_pointer) !== JSON.stringify(b_pointer)) {
+    // if pointer_a is null, point to headB
     if (!a_pointer) {
       a_pointer = headB;
     } else {
+      // else move to next node
       a_pointer = a_pointer.next;
     }
 
+    // if pointer_b is null, point to headA
     if (!b_pointer) {
       b_pointer = headA;
     } else {
+      // else move to next node
       b_pointer = b_pointer.next;
     }
   }
