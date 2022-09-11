@@ -7,7 +7,7 @@
  *
  * EXAMPLE
  * Input: A -> B -> C -> D -> E -> C [the same C as earlier) Output: C
-
+ * Solution: TBD
  * @param head
  */
 const hasLoop = (head) => {

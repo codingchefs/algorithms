@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { hasLoop } = require('../../src/chapter-2-linked-lists/LoopDetection');
+const { hasLoop } = require('../../src/chapter-2-linked-lists/8-LoopDetection');
 const { LinkedList, Node} = require('../../src/chapter-2-linked-lists/LinkedList');
 // FIXME fix failing 1 test
 describe("Linked List - is there intersection?", function() {
