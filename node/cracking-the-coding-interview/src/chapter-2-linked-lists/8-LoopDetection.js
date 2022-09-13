@@ -7,43 +7,29 @@
  *
  * EXAMPLE
  * Input: A -> B -> C -> D -> E -> C [the same C as earlier) Output: C
- * Solution: TBD
+ * Solution: Use a slow pointer and a fast pointer that moves 2x speed. check while fast.next is null, if slow and fast
+ * pointer becomes equal, then a loop exists
  * @param head
  */
 const hasLoop = (head) => {
 
   if (!head) return false;
+  // initialize slow and fast
   let slow = head;
-  let fast = head.next;
+  let fast = head;
 
-  while(slow !== fast){
-    if(!fast || !fast.next) {
-      return false;
-    }
-
+  // iterate while fast next exists
+  while (fast && fast.next) {
+    // move fast and slow pointers
     slow = slow.next;
     fast = fast.next.next;
+    // check if slow and fast becomes equal
+    if (slow === fast) {
+      return true;
+    }
   }
 
-  return true;
+  return false;
 };
 
-const hasCycle=function(node){
-  const head =  node;
-  let track=node;
-  //traverse thru list till next node is either null or back to first node
-  while(track.next!==null && track.next!== head){
-    track=track.next;
-  }
-  if(track.next === null){ //if next node null then no cycle
-    return false;
-  }
-  if(track.next===head){ //if next node head then there is cycle
-    return true;
-  }
-};
-
-module.exports = {
-  hasLoop,
-  hasCycle,
-};
+module.exports = hasLoop;

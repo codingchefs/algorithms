@@ -1,9 +1,9 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { hasLoop } = require('../../src/chapter-2-linked-lists/8-LoopDetection');
+const hasLoop = require('../../src/chapter-2-linked-lists/8-LoopDetection');
 const { LinkedList, Node} = require('../../src/chapter-2-linked-lists/LinkedList');
-// FIXME fix failing 1 test
+
 describe("Linked List - is there intersection?", function() {
   let ll;
 
@@ -11,7 +11,12 @@ describe("Linked List - is there intersection?", function() {
     ll = new LinkedList();
   });
 
-  it("A loop is detected", function() {
+  it("returns null if no linked list provided", function() {
+    const res = hasLoop();
+    expect(res).to.deep.equal(false);
+  });
+
+  it("returns true if a loop is detected", function() {
     let my_node1=new Node('A');
     let my_node2=new Node('B');
     let my_node3=new Node('C');
@@ -32,7 +37,7 @@ describe("Linked List - is there intersection?", function() {
     expect(res).to.deep.equal(true);
   });
 
-  it("A loop is NOT detected", function() {
+  it("returns false if a loop is NOT detected", function() {
     ll.convertArrayToLinkedList(['A', 'B', 'C', 'D', 'E']);
 
     const res = hasLoop(ll.head);
