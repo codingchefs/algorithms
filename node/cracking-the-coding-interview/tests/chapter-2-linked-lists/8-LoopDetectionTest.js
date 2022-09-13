@@ -16,6 +16,13 @@ describe("Linked List - is there intersection?", function() {
     expect(res).to.deep.equal(false);
   });
 
+  it("returns false if a loop is NOT detected", function() {
+    ll.convertArrayToLinkedList(['A', 'B', 'C', 'D', 'E']);
+
+    const res = hasLoop(ll.head);
+    expect(res).to.deep.equal(false);
+  });
+
   it("returns true if a loop is detected", function() {
     let my_node1=new Node('A');
     let my_node2=new Node('B');
@@ -36,14 +43,5 @@ describe("Linked List - is there intersection?", function() {
     const res = hasLoop(my_node1);
     expect(res).to.deep.equal(true);
   });
-
-  it("returns false if a loop is NOT detected", function() {
-    ll.convertArrayToLinkedList(['A', 'B', 'C', 'D', 'E']);
-
-    const res = hasLoop(ll.head);
-    expect(res).to.deep.equal(false);
-  });
-
-
 
 });
