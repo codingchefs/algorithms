@@ -16,13 +16,9 @@ class Tower {
   index;
 
   constructor(i, name) {
-    this.disks = new Stack();
+    this.disks = new Stack(0);
     this.index = i;
     this.name = name;
-  }
-
-  index() {
-    return this.index;
   }
 
   add(d) {

@@ -7,6 +7,7 @@ describe('Towers Of Hanoi', () => {
   it('Given n discs, return destination tower with right discs after movement', () => {
     const expectedResult = {
       "disks": {
+        "capacity": 0,
         "items": [
           2,
           1,
