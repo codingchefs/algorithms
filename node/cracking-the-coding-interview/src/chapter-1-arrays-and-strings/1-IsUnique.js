@@ -8,17 +8,19 @@
 
  */
 const isUniqueChars = (str) => {
-    if(str.length > 128) return false;
+  if (str.length > 128) return false;
 
-    const map = {};
-    for (let i = 0; i < str.length; i++) {
-        const s = str[i];
-        if (map[s]) {
-            return false;
-        }
-        map[s] = true;
+  const charMap = {};
+  for (let i = 0; i < str.length; i++) {
+    const currentChar = str[i];
+    if (charMap[currentChar]) {
+      return false;
+    } else {
+      charMap[currentChar] = true;
     }
-    return true;
+  }
+
+  return true;
 };
 
 module.exports = isUniqueChars;
