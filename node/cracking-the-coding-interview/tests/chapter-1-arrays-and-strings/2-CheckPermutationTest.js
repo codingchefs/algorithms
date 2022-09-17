@@ -15,7 +15,7 @@ describe("Arrays and Strings - CheckPermutation", () => {
   });
 
   it("Given two strings with no permutation, returns false", function () {
-    const res = checkPermutation('mississippi', 'ppissisiimi');
+    const res = checkPermutation('mississippi', 'ppissisiimy');
     expect(res).to.be.false;
   });
 
