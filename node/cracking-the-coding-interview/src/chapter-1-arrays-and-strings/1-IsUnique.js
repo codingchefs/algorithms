@@ -8,6 +8,8 @@
 
  */
 const isUniqueChars = (str) => {
+  // return false if the string length exceeds the number of unique characters in the alphabet.
+  // you can't form a string of 280 unique characters out of a 128-character alphabet.
   if (str.length > 128) return false;
 
   const charMap = {};
