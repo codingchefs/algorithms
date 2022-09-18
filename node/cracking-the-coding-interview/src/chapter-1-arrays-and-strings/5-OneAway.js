@@ -12,6 +12,7 @@ write a function to check if they are one edit (or zero edits) away.
  check if both strings lengths differ by 1, then either insert or removal
  if replace -> if a second difference is found, then return false
  if insert/removal -> if a second difference is found in consecutive order, then return false
+ > takesO(n) time,where n is the length of the shorter string.
  */
 
 /**
@@ -63,7 +64,7 @@ const oneEditAway = (first, second) => {
         return oneReplaceAway(first, second);
     } else if(first.length + 1 === second.length) {
         return oneEditInsert(first, second);
-    } else if(first.length -1 === second.length) {
+    } else if(first.length - 1 === second.length) {
         return oneEditInsert(second, first);
     }
     return false;
@@ -77,8 +78,9 @@ const oneEditAway = (first, second) => {
  */
 const oneEditAway2 = (first, second) => {
     // false condition
-    if (Math.abs(first - second) > 1) return true;
+    if (Math.abs(first.length - second.length) > 1) return false;
 
+    // get shorter and longer string
     let s1 = first.length < second.length ? first : second;
     let s2 = first.length < second.length ? second : first;
 
@@ -88,18 +90,17 @@ const oneEditAway2 = (first, second) => {
 
     while (index2 < s2.length && index1 < s1.length) {
         if (s1[index1] !== s2[index2]) {
+            // ensure that this is the first difference found
             if (foundDifference) return false;
             foundDifference = true;
             if (s1.length === s2.length) index1++;
         } else {
-            index1++;
+            index1++; // if matching, move shorter pointer
         }
-        index2++;
+        index2++; // always move pointer for longer string
     }
     return true;
 };
 
-const s1 = "pale";
-const s2 = "alc";
-console.log(oneEditAway(s1, s2));
+module.exports = oneEditAway2;
 
