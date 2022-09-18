@@ -14,24 +14,30 @@
 
 // check if it is palindrome, sort and check string is equal
 const isPermutationOfPalindrome = (phrase) => {
-    let oddCount = 0;
-    let map = {};
-    // increment oddCount if value of count in map is odd and decrement if otherwise
-    for (let i = 0; i < phrase.length; i++) {
-        const x = phrase[i];
-        if (!map[x]) {
-            map[x] = 1;
-        } else {
-            map[x] += 1;
-        }
-
-        if (map[x] % 2 === 1) {
-            oddCount++;
-        } else {
-            oddCount--;
-        }
+  // initialize oddCount
+  let oddCount = 0;
+  const map = {};
+  // iterate through the string
+  for (let i = 0; i < phrase.length; i++) {
+    const currentChar = phrase[i];
+    // increment count on the map
+    if(!map[currentChar]) {
+      map[currentChar] = 1;
+    } else {
+      map[currentChar] = map[currentChar] + 1;
     }
-    return oddCount === 0 || oddCount === 1;
+
+    // check if count is odd, then increment odd
+    if(map[currentChar] % 2 === 1) {
+      oddCount++;
+    } else {
+      // otherwise decrement odd
+      oddCount--;
+    }
+  }
+
+  // check if odd is 0 or 1, return true
+  return (oddCount === 0 || oddCount === 1);
 };
 
 module.exports = isPermutationOfPalindrome;
