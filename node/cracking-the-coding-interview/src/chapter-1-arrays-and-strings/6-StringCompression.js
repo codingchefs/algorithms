@@ -10,17 +10,26 @@
  */
 
 const compress = (str) => {
-  let compressedStr = [];
+  // initialize compressedString
+  const compressedString = [];
   let consecutiveCount = 0;
+  // loop through the string
   for (let i = 0; i < str.length; i++) {
+    // increment the counter
     consecutiveCount++;
+    // check if last element or if next element is different
     if (i + 1 >= str.length || str[i] !== str[i + 1]) {
-      compressedStr.push(str[i]);
-      compressedStr.push(consecutiveCount);
+      // append char to compress
+      compressedString.push(str[i]);
+      // append count to compress
+      compressedString.push(consecutiveCount);
+      // reset the counter
       consecutiveCount = 0;
     }
   }
-  return compressedStr.length < str.length ? compressedStr.join('') : str;
+
+  // if compress is less than or equal to str length, return as it is, otherwise return compress string
+  return compressedString.length >= str.length ? str : compressedString.join('');
 };
 
 module.exports = compress;
