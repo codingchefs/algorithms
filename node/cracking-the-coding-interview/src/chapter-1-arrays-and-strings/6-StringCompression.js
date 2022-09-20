@@ -5,22 +5,22 @@
  become smaller than the original string, your method should return the original string.
  You can assume the string has only uppercase and lowercase letters (a - z).
  SOLUTION:
-    use a counter to increment till a different char is found. If current char is different
-    than next char then push the char to array and also the consecutiveCount
+ use a counter to increment till a different char is found. If current char is different
+ than next char then push the char to array and also the consecutiveCount
  */
 
 const compress = (str) => {
-    let compressedStr = [];
-    let consecutiveCount = 0;
-    for (let i = 0; i < str.length; i++) {
-        consecutiveCount++;
-        if (i < str.length && str[i] !== str[i + 1]) {
-            compressedStr.push(str[i]);
-            compressedStr.push(consecutiveCount);
-            consecutiveCount = 0;
-        }
+  let compressedStr = [];
+  let consecutiveCount = 0;
+  for (let i = 0; i < str.length; i++) {
+    consecutiveCount++;
+    if (i + 1 >= str.length || str[i] !== str[i + 1]) {
+      compressedStr.push(str[i]);
+      compressedStr.push(consecutiveCount);
+      consecutiveCount = 0;
     }
-    return compressedStr.join('');
+  }
+  return compressedStr.length < str.length ? compressedStr.join('') : str;
 };
 
-console.log(compress('aabcccccaaa'));
+module.exports = compress;
