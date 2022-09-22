@@ -15,56 +15,35 @@ Solution:
    finally right with top saved value.
  */
 
-const rotateMatrix = (N, matrix) => {
-    // check condition
-    if (matrix.length === 0 || matrix.length !== matrix[0].length) return false;
-    let n = matrix.length;
-    for (let layer = 0; layer < n / 2; layer++) {
-        let first = layer;
-        let last = n - 1 - layer;
-        for (let i = first; i < last; i++) {
-            let offset = i - first;
-            let top = matrix[first][i];
-
-            // top <- left
-            matrix[first][i] = matrix[last-offset][first]; // [0,0] -> [3,0]
-
-            // left <- bottom
-            matrix[last-offset][first] = matrix[last][last-offset]; // [3, 0] ->[3,3]
-
-            // bottom <- right
-            matrix[last][last-offset] = matrix[i][last]; // 0, 3
-
-            // right <- top
-            matrix[i][last] = top; //
-        }
+const rotateMatrix = (matrix) => {
+  // matrix null and even check
+  if (matrix.length === 0 || matrix.length !== matrix[0].length) return false;
+  let n = matrix.length;
+  // loop through the layers, half the matrix length
+  for (let layer = 0; layer < n / 2; layer++) {
+    // initialize first and last
+    const first = layer;
+    const last = n - 1 - layer;
+    // loop through the elements in the layer
+    for (let i = first; i < last; i++) {
+      // initialize offset
+      const offset = i - first; // 0, 1, 2, 3; 0, 1,
+      // rotate the matrix
+      // top = TL
+      const top = matrix[first][i]; // [0,0], [1, 1]
+      // TL <- BL
+      matrix[first][i] = matrix[last - offset][first];
+      // BL <- BR
+      matrix[last - offset][first] = matrix[last][last - offset];
+      // BR <- TR
+      matrix[last][last - offset] = matrix[i][last];
+      // TR <- TL
+      matrix[i][last] = top;
     }
+  }
+  // return the rotated matrix
+  return matrix;
+
 };
 
-const displayMatrix = (N, mat) => {
-    let arr = [];
-    for (let i = 0; i < N; i++) {
-        arr = [];
-        arr.push('[');
-        for (let j = 0; j < N; j++) {
-            arr.push(mat[i][j]);
-            // console.log(" ", mat[i][j]);
-        }
-        arr.push(']');
-        console.log(arr.join(" ") +"\n");
-    }
-};
-
-let N = 4;
-
-let mat = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
-    [13, 14, 15, 16],
-];
-
-displayMatrix(N, mat);
-rotateMatrix(N, mat);
-console.log("====After Rotation====");
-displayMatrix(N, mat);
+module.exports = rotateMatrix;
