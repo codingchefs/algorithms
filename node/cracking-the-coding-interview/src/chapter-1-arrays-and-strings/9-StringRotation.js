@@ -11,9 +11,12 @@ const isRotation = (s1, s2) => {
   let s1Len = s1.length;
   let s2Len = s2.length;
   if (s1Len === s2Len && s1Len > 0) {
+    // concatenate s1 two times
     const s1s1 = s1 + s1;
+    // check if s2 is substring of s1s1
     return s1s1.includes(s2);
   }
+
   return false;
 };
 
