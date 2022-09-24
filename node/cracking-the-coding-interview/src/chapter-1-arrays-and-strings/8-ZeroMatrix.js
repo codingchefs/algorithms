@@ -26,16 +26,18 @@ const nullifyColumn = (matrix, column) => {
 };
 
 const setZeros = (matrix) => {
+  // initialize boolean flags
   let hasFirstRowZero = false;
   let hasFirstColZero = false;
-  // check if first row has zero
+
+  // check if first row has zero and set flag
   for (let i = 0; i < matrix.length; i++) {
     if (matrix[0][i] === 0) {
       hasFirstRowZero = true;
       break;
     }
   }
-  // check if first column has zero
+  // check if first column has zero and set flag
   for (let j = 0; j < matrix.length; j++) {
     if (matrix[j][0] === 0) {
       hasFirstColZero = true;
@@ -43,7 +45,7 @@ const setZeros = (matrix) => {
     }
   }
 
-  // check if rest of rows/columns has zero
+  // check if rest of values is zero, then set first row and first col index to zero
   for (let i = 1; i < matrix.length; i++) {
     for (let j = 1; j < matrix[i].length; j++) {
       if (matrix[i][j] === 0) {
@@ -53,25 +55,26 @@ const setZeros = (matrix) => {
     }
   }
 
-  // set all rows and columns zero
+  // set complete row to zero if first row has zero
   for (let i = 1; i < matrix.length; i++) {
     if (matrix[0][i] === 0) {
       nullifyColumn(matrix, i);
     }
   }
 
+  // set complete column to zero if first column has zero
   for (let j = 1; j < matrix.length; j++) {
     if (matrix[j][0] === 0) {
       nullifyRow(matrix, j);
     }
   }
 
-  // nullify the first row
+  // nullify first row
   if (hasFirstRowZero) {
     nullifyRow(matrix, 0);
   }
 
-  // nullify the first column
+  // nullify first column
   if (hasFirstColZero) {
     nullifyColumn(matrix, 0);
   }
