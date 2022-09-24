@@ -8,12 +8,13 @@ Solution:
     check if s2 is a substring of s1s1
  */
 const isRotation = (s1, s2) => {
-    let len = s1.length;
-    if(len === s2.length && len > 0) {
-        const s1s1 = s1 + s1;
-        return s1s1.includes(s2);
-    }
-    return false;
+  let s1Len = s1.length;
+  let s2Len = s2.length;
+  if (s1Len === s2Len && s1Len > 0) {
+    const s1s1 = s1 + s1;
+    return s1s1.includes(s2);
+  }
+  return false;
 };
 
-console.log(isRotation('waterbottle', 'erbottlewat'));
+module.exports = isRotation;
