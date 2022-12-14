@@ -24,7 +24,7 @@
     "audit-ci": "^5.1.2",
     "chai": "^4.3.4",
     "husky": "^8.0.2",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.3"
   },
   "husky": {
     "hooks": {
