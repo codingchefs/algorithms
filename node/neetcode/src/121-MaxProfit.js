@@ -7,14 +7,16 @@
  * @constructor
  */
 const MaxProfit = (prices) => {
+  // initialize left, right, maxProfit
   let left = 0;
   let right = 1;
-  let maxP = 0;
+  let maxProfit = 0;
 
   while (right < prices.length) {
-    if (prices[left] < prices[right]) {
-      let profit = prices[right] - prices[left];
-      maxP = Math.max(maxP, profit);
+    // if left is less than right, then calculate profit & move right side byb 1
+    if (prices[right] > prices[left]) {
+      const profit = prices[right] - prices[left];
+      maxProfit = Math.max(maxProfit, profit);
     } else {
       left = right;
     }
@@ -22,7 +24,7 @@ const MaxProfit = (prices) => {
     right += 1;
   }
 
-  return maxP;
+  return maxProfit;
 };
 
 module.exports = MaxProfit;
