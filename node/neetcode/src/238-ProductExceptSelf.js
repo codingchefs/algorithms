@@ -8,23 +8,26 @@
  * @constructor
  */
 const ProductExceptSelf = (nums) => {
-  let res = [];
+  // initialize prefix and postfix
+  let result = [];
   let prefix = 1;
 
+  // iterate through array to find the prefix array
   for (let i = 0; i < nums.length; i++) {
-    res[i] = prefix;
-    res[i] = res[i] === -0 ? 0 : res[i];
+    result[i] = prefix;
+    result[i] = (result[i] === -0 ? 0 : result[i]);
     prefix *= nums[i];
   }
-  let postfix = 1;
 
-  for (let j = nums.length - 1; j >= 0; j--) {
-    res[j] *= postfix;
-    res[j] = res[j] === -0 ? 0 : res[j];
-    postfix *= nums[j];
+  let postfix = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= postfix;
+    result[i] = (result[i] === -0 ? 0 : result[i]);
+    postfix *= nums[i];
   }
 
-  return res;
+  return result;
+
 };
 
 module.exports = ProductExceptSelf;
