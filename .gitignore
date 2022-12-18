@@ -2,3 +2,6 @@ out
 node_modules
 .DS_Store
 .idea
+/node/coverage/
+/node/neetcode/__tests__/src/__snapshots__/
+/node/.nyc_output/processinfo/index.json

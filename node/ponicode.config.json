@@ -1,0 +1,11 @@
+{
+    "schemaVersion": "1",
+    "javascript": {
+        "name": "algorithms",
+        "rootDir": "./neetcode",
+        "testEnvironment": "node",
+        "testLocationStrategy": "relativeToProjectRoot",
+        "testLocationFolder": "./neetcode/__tests__",
+        "testNamePattern": "{name}Test.js"
+    }
+}
