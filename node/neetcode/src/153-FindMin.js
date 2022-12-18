@@ -11,16 +11,16 @@
  * @constructor
  */
 const FindMin = (nums) => {
-  // initialize result to be left most number
+  // initialize result to be the left most element
   let result = nums[0];
 
   // initialize left and right elements
   let left = 0;
   let right = nums.length - 1;
 
-  // loop through the array
+  // loop through the elements
   while (left <= right) {
-    // if right is greater than left, take the minimum of left and result
+    // check if left element is less than right
     if (nums[left] < nums[right]) {
       result = Math.min(result, nums[left]);
       break;
@@ -35,7 +35,6 @@ const FindMin = (nums) => {
     if (nums[mid] >= nums[left]) {
       left = mid + 1;
     } else {
-      // search to left
       right = mid - 1;
     }
   }
