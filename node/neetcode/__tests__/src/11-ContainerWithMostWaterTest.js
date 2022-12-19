@@ -1,6 +1,6 @@
 const _11_ContainerWithMostWater = require("../../src/11-ContainerWithMostWater")
 // @ponicode
-describe("_11_ContainerWithMostWater", () => {
+describe.skip("_11_ContainerWithMostWater", () => {
     test("0", () => {
         let result = _11_ContainerWithMostWater([1,8,6,2,5,4,8,3,7])
         expect(result).toBe(49)

@@ -1,6 +1,6 @@
 const _191_NumberOf1Bits = require("../../src/191-NumberOf1Bits")
 // @ponicode
-describe("_191_NumberOf1Bits", () => {
+describe.skip("_191_NumberOf1Bits", () => {
     test("0", () => {
         let result = _191_NumberOf1Bits(0b00000000000000000000000000001011)
         expect(result).toBe(3)

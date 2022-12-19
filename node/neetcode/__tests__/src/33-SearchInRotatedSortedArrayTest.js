@@ -3,7 +3,7 @@ const _33_SearchInRotatedSortedArray = require("../../src/33-SearchInRotatedSort
 describe("_33_SearchInRotatedSortedArray", () => {
     test("0", () => {
         let result = _33_SearchInRotatedSortedArray([4, 5, 6, 7, 0, 1, 2], 0)
-        expect(result).toBe(0);
+        expect(result).toBe(4);
     })
 
     test("1", () => {

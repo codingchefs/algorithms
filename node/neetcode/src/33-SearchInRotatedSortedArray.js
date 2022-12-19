@@ -14,7 +14,38 @@
  * @param{number} target - the target value to search for
  */
 const searchInRotatedSortedArray = (nums, target) => {
+  // initialize left, right
+  let left = 0;
+  let right = nums.length - 1;
 
+  while (left <= right) {
+    // calculate mid element and check if target is equal to mid element
+    const mid = Math.floor((left + right) / 2);
+    if (target === nums[mid]) {
+      return mid;
+    }
+
+    // left sorted portion
+    // example: 4, 5, 6, 7, 0, 1, 2; target = 0;
+    if (nums[left] <= nums[mid]) {
+      if (target > nums[mid] || target < nums[left]) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+
+    // right sorted portion
+    else {
+      if (target < nums[mid] || target > nums[right]) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+  }
+
+  return -1;
 };
 
 module.exports = searchInRotatedSortedArray;
