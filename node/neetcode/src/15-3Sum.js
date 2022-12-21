@@ -13,14 +13,15 @@
 const threeSum = (nums) => {
   // initialize result
   const result = [];
-  // sort numbers
+  // sort the nums
   nums.sort();
 
-  // iterate through numbers
+  // iterate through nums
   for (let i = 0; i < nums.length; i++) {
-    // initialize a
+    // initialize currentNumber
     const currentNumber = nums[i];
-    // if repeated value found, then skip the loop
+
+    // check if the currenNumber is same as previous & skip the loop
     if (i > 0 && currentNumber === nums[i - 1]) {
       continue;
     }
@@ -28,27 +29,26 @@ const threeSum = (nums) => {
     // initialize left and right
     let left = i + 1;
     let right = nums.length - 1;
-    // -2, -2, 0, 0, 2, 2
-    let threeSum;
-    // iterate till left < right
-    while (left < right) {
-      // calculate threeSum
-      threeSum = currentNumber + nums[left] + nums[right];
+
+    // iterate through while left is less than right
+    while(left < right) {
+      const threeSum = currentNumber + nums[left] + nums[right];
       // if threeSum greater than 0, decrease right
-      if (threeSum > 0) {
-        right -= 1;
-      // if threeSum less than 0, increase left
+      if(threeSum > 0) {
+        right-=1;
+        // if threeSum less than 0, increase left
       } else if (threeSum < 0) {
-        left += 1;
+        left+=1;
       } else {
-      // add result
+        // add to result
         result.push([currentNumber, nums[left], nums[right]]);
-        left += 1;
-        while (nums[left] === nums[left - 1] && left < right) {
-          left += 1;
+        left+=1;
+        while(left < right && nums[left] === nums[left - 1]){
+          left+=1;
         }
       }
     }
+
   }
 
   return result;
