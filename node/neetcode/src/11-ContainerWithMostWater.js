@@ -4,6 +4,7 @@
  * Find two lines that together with the x-axis form a container, such that the container contains the most water.
  * Return the maximum amount of water a container can store.
  * Notice that you may not slant the container.
+ * Time complexity: O(N)
  */
 
 /**
@@ -14,6 +15,25 @@
  */
 const MaxArea = (heights) => {
 
+  let result = 0;
+  let left = 0;
+  let right = heights.length - 1;
+
+  // 1, 8, 6, 2, 5, 4, 8, 3, 7
+  while (left < right) {
+    // calculate max area
+    const area = (right - left) * Math.min(heights[right], heights[left]);
+    result = Math.max(result, area);
+
+    // move pointer for which ever height is less
+    if (heights[left] >= heights[right]) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+
+  return result;
 };
 
 module.exports = MaxArea;
