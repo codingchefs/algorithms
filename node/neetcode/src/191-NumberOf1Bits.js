@@ -17,7 +17,7 @@
  * @param {number} n - a positive integer
  * @return {number}
  */
-const HammingWeight = (n) => {
+const HammingWeight_2 = (n) => {
   let result = 0;
   // iterate while number right shift not equals zero
   while (n) {
@@ -35,7 +35,7 @@ const HammingWeight = (n) => {
  * @return {number}
  * @constructor
  */
-const HammingWeight_2 = (n) => {
+const HammingWeight = (n) => {
   let result = 0;
   // iterate while number right shift not equals zero
   while (n) {
