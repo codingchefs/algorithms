@@ -18,3 +18,7 @@ describe("_191_NumberOf1Bits", () => {
     })
 
 })
+
+// Just template of how tests text should be
+// should throw an error if a long string of blanks is provided
+// should transform a string number to a number of type number
