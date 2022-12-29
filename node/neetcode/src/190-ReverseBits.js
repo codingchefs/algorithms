@@ -18,7 +18,7 @@
  * @return {number} - a positive integer
  */
 const ReverseBits = function (n) { // 0b00000010100101000001111010011100
-                                   // initialize result
+  // initialize result
   let result = 0;
   // loop through 32 bits
   for (let i = 0; i < 32; i++) {
@@ -30,7 +30,6 @@ const ReverseBits = function (n) { // 0b00000010100101000001111010011100
 
   // logical right shift gets unsigned int
   return result >>> 0;
-
 };
 
 module.exports = ReverseBits;
