@@ -18,14 +18,19 @@
  * @return {number} - a positive integer
  */
 const ReverseBits = function (n) { // 0b00000010100101000001111010011100
+                                   // initialize result
   let result = 0;
+  // loop through 32 bits
   for (let i = 0; i < 32; i++) {
+    // get the least significant bit in each iteration
     const lsb = (n >> i) & 1;
+    // right shift the result to add the lsb in reverse order
     result = result | (lsb << (31 - i));
   }
 
-  // >>> 0 makes it unsigned even if bit 32 (the sign bit) was set
+  // logical right shift gets unsigned int
   return result >>> 0;
+
 };
 
 module.exports = ReverseBits;
