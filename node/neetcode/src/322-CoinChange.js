@@ -15,18 +15,24 @@
  * @return {number}
  */
 const CoinChange = (coins, amount) => {
+  // Initialize dp array
   const dp = Array(amount + 1).fill(amount + 1);
+
+  // initialize first element
   dp[0] = 0;
-  // 1 to 12, coins array
-  for (let a = 1; a < amount + 1; a++) {
-    for (const c of coins) {
-      if (a - c >= 0) {
-        dp[a] = Math.min(dp[a], 1 + dp[a - c]);
+  // loop through each value till amount
+  for(let i = 1; i < amount + 1; i++) {
+    // loop through each coin value
+    for(const coin of coins) {
+      if(i - coin >= 0) {
+        // calculate dp[i] with Minimum of dp[i] & 1 + dp[i - coin]
+        dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
       }
     }
   }
+  // return dp[amount] if it is set, otherwise -1
+  return dp[amount] !== (amount + 1) ? dp[amount] :  -1;
 
-  return dp[amount] !== (amount + 1) ? dp[amount] : -1;
 };
 
 module.exports = CoinChange;
