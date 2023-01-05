@@ -14,11 +14,12 @@ npm run test-jest
 /**
  * Problem Link: https://leetcode.com/problems/coin-change/
  * Problem Statement: 
- * this is an example text.
+ * 
  *
- * Solution: this is an example text.
- * TimeComplexity: O(x)
- * SpaceComplexity: O(y)
+ * Solution: 
+ * 
+ * TimeComplexity: O()
+ * SpaceComplexity: O()
  */
 /**
  * @param {number[]} args
