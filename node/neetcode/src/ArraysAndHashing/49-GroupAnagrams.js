@@ -5,6 +5,7 @@
  * An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
  *
  * Solution:
+ * create a countArray of ascii values for characters. If the word matches countArray push to array in the map.
  *
  * TimeComplexity: O(m * n * 26) = O(m * n)
  * SpaceComplexity: O(m)
@@ -14,26 +15,26 @@
  * @return {string[][]}
  */
 const GroupAnagrams = (strs) => {
-  // Create a map to store the anagrams
-  const anagrams = {};
+  // initialize result map
+  const result = {};
 
-  // Loop through each word
   for (const word of strs) {
-    // Create a count map for the word
-    const count = Array(26).fill(0);
+    // initialize count array
+    const countList = Array(26).fill(0);
     for (const c of word) {
-      count[c.charCodeAt(0) - "a".charCodeAt(0)] += 1;
+      countList[c.charCodeAt(0) - "a".charCodeAt(0)] += 1;
     }
 
-    const countStr = count.join('');
-    if (!anagrams[countStr]) {
-      anagrams[countStr] = [word];
+    const countStr = countList.join("");
+    // check the map
+    if (!result[countStr]) {
+      result[countStr] = [word];
     } else {
-      anagrams[countStr].push(word)
+      result[countStr].push(word);
     }
   }
 
-  return Object.values(anagrams);
+  return Object.values(result);
 }
 
 module.exports = GroupAnagrams;
