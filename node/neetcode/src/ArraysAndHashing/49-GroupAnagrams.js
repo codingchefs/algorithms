@@ -25,7 +25,7 @@ const GroupAnagrams = (strs) => {
       countList[c.charCodeAt(0) - "a".charCodeAt(0)] += 1;
     }
 
-    const countStr = countList.join("");
+    const countStr = countList.join("-");
     // check the map
     if (!result[countStr]) {
       result[countStr] = [word];
