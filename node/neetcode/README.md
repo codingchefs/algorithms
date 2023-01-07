@@ -12,7 +12,7 @@ npm run test-jest
 - Template for new problem
 ```javascript
 /**
- * Problem Link: https://leetcode.com/problems/coin-change/
+ * Problem Link: https://leetcode.com/problems/
  * Problem Statement: 
  * 
  *
