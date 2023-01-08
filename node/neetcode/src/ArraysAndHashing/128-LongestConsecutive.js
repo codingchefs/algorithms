@@ -15,22 +15,22 @@
  * @return {number}
  */
 const LongestConsecutive = (nums) => {
+  // initialize set
   const numSet = new Set(nums);
   let longest = 0;
 
-  // loop through nums
+  // loop through
   for (const n of nums) {
-    // if n doesnt have a left number in the set, which means its starting of series
+    // check if number is start of series
     if (!numSet.has(n - 1)) {
       let length = 0;
-      // 100,4,200,1,3,2
       while (numSet.has(n + length)) {
-        length += 1;
+        length++;
       }
       longest = Math.max(length, longest);
     }
-
   }
+
   return longest;
 };
 
