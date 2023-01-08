@@ -1,4 +1,4 @@
-const _238_ProductExceptSelf = require("../../src/238-ProductExceptSelf")
+const _238_ProductExceptSelf = require("../../../src/ArraysAndHashing/238-ProductExceptSelf")
 // @ponicode
 describe("_238_ProductExceptSelf", () => {
     
