@@ -5,6 +5,7 @@
  * You must write an algorithm that runs in O(n) time.
  *
  * Solution:
+ * save the numbers in set. check if number is start of series. If it is, then check right side numbers to see max length.
  *
  * TimeComplexity: O(n)
  * SpaceComplexity: O()
