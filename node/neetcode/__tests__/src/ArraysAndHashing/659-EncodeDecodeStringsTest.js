@@ -11,7 +11,7 @@ describe("_659_EncodeDecodeStrings.encode", () => {
         expect(result).toEqual('2#we3#say1#:3#yes')
     })
 })
-
+T
 // @ponicode
 describe("_659_EncodeDecodeStrings.decode", () => {
     test("0", () => {

@@ -18,10 +18,11 @@
  */
 
 const encode = (strs) => {
+  // no#string
   let res = '';
-  for (const s of strs) {
-    res += `${s.length}#${s}`;
-  }
+  strs.forEach(str => {
+    res += `${str.length}#${str}`;
+  });
 
   return res;
 };
@@ -31,21 +32,19 @@ const encode = (strs) => {
  * @return {string []}
  */
 const decode = (str) => {
-  // initialize result
+  // initialize
   let res = [];
   let i = 0;
-  // loop through till str length
+
+  // 4#lint4#code4#love3#you
   while (i < str.length) {
-    // initialize j
     let j = i;
-    // loop through till # is found
     while (str[j] !== '#') {
-      j += 1;
+      j++;
     }
-    // get length
     const length = Number(str.slice(i, j));
-    // add word to res
-    res.push(str.slice(j + 1, j + 1 + length));
+    const currentStr = str.slice(j + 1, (j + 1 + length));
+    res.push(currentStr);
     i = j + 1 + length;
   }
 
