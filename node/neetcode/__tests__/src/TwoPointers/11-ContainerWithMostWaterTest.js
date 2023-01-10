@@ -1,4 +1,4 @@
-const _11_ContainerWithMostWater = require("../../src/11-ContainerWithMostWater")
+const _11_ContainerWithMostWater = require("../../../src/TwoPointers/11-ContainerWithMostWater")
 // @ponicode
 describe("_11_ContainerWithMostWater", () => {
   test("0", () => {

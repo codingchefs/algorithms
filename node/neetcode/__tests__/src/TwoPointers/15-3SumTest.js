@@ -1,4 +1,4 @@
-const _15_3Sum = require("../../src/15-3Sum")
+const _15_3Sum = require("../../../src/TwoPointers/15-3Sum")
 // @ponicode
 describe("_15_3Sum", () => {
   test("0", () => {
