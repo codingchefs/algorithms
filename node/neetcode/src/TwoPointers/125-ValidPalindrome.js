@@ -21,17 +21,17 @@ const isPalindrome = (s) => {
   let right = s.length - 1;
 
   // loop through till left < right
-  while(left < right) {
+  while (left < right) {
     // loop through till left < right && left is isAlphanumeric
-    while(left < right && !_isAlphanumeric(s[left])) {
+    while (left < right && !_isAlphanumeric(s[left])) {
       left++;
     }
     // loop through till left < right && right is isAlphanumeric
-    while(left < right && !_isAlphanumeric(s[right])) {
+    while (left < right && !_isAlphanumeric(s[right])) {
       right--;
     }
     // compare left char to right char
-    if(s[left].toLowerCase() !== s[right].toLowerCase()) {
+    if (s[left].toLowerCase() !== s[right].toLowerCase()) {
       return false;
     }
     // increment left and decrement right
