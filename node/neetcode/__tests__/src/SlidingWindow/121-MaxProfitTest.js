@@ -1,4 +1,4 @@
-const _121_MaxProfit = require("../../src/121-MaxProfit")
+const _121_MaxProfit = require("../../../src/SlidingWindow/121-MaxProfit")
 // @ponicode
 describe("_121_MaxProfit", () => {
   test("0", () => {
