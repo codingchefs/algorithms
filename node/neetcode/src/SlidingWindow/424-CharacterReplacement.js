@@ -6,7 +6,9 @@
  * the same letter you can get after performing the above operations.
  *
  * Solution:
- *
+ * Use a sliding window technique.
+ * move right pointer to the right and check if condition (right -left + 1) - maxFreq <= k, else increment left
+ * result will be max of (right - left + 1)
  *
  * TimeComplexity: O()
  * SpaceComplexity: O()
