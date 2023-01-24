@@ -19,22 +19,29 @@
  * @return {number}
  */
 const CharacterReplacement = (s, k) => {
-  let count = {};
-  let result = 0;
-
+  // initialize left, count, result, maxFreq
   let left = 0;
+  let count = {};
+
+  let result = 0;
   let maxFreq = 0;
 
+  // loop through s with right
   for (let right = 0; right < s.length; right++) {
-    count[s[right]] = 1 + (count[s[right]] || 0);
-    maxFreq = Math.max(maxFreq, count[s[right]]);
-
+    // calculate count of right
+    const rightCharacter = s[right];
+    count[rightCharacter] = 1 + (count[rightCharacter] || 0);
+    // calculate maxFreq
+    maxFreq = Math.max(maxFreq, count[rightCharacter]);
+    // loop through if (lengthOfSector - maxFreq > k)
     while ((right - left + 1) - maxFreq > k) {
+      // count left --
       count[s[left]] -= 1;
+      // increment left
       left++;
     }
-
-    result = Math.max(result, (right - left + 1));
+    // calculate max result
+    result = Math.max(result, right - left + 1);
   }
   return result;
 };
