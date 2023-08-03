@@ -1,11 +1,10 @@
 /**
- Is Unique: Implement an algorithm to determine if a string has all unique characters.
- What if you cannot use additional data structures?
- Assumption: Character set is ASCII
- Solution: save each character in a map and check if next char exists in map.
- Also check if char length is greater than 128
- time complexity O(N). space complexity O(1).
-
+ * Is Unique: Implement an algorithm to determine if a string has all unique characters.
+ * What if you cannot use additional data structures?
+ * Assumption: Character set is ASCII
+ * Solution: scroll down
+ * @param str
+ * @return {boolean}
  */
 const isUniqueChars = (str) => {
   // return false if the string length exceeds the number of unique characters in the alphabet.
@@ -26,3 +25,12 @@ const isUniqueChars = (str) => {
 };
 
 module.exports = isUniqueChars;
+
+
+
+
+/**
+* Solution: save each character in a map and check if next char exists in map.
+* Also check if char length is greater than 128 time complexity O(N). space complexity O(1).
+*/
+
