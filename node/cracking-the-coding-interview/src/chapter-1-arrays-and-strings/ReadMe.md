@@ -7,7 +7,7 @@
       the same hash code, as there may be an infinite number of keys and a finite number of ints.
     * Then,map the hashcode to an index in the array.This could be done with something like hash(key) % array_length.Two
       different hashcodes could,of course,map to the same index.
-    * At this index,there is a linkedlist of keys and values.Store the key and value in this index.We must use a linked 
+    * At this index,there is a linkedlist of keys and values. Store the key and value in this index.We must use a linked 
       list because of collisions: you could have two different keys with the same hash code, or two different hash codes 
       that map to the same index.
 * If the number of collisions is very high, the worst case runtime is O(N), where N is the number of keys. Otherwise,
