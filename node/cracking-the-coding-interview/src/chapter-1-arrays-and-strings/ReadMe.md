@@ -16,9 +16,6 @@
     3. At this specific index, there exists a linked list of keys and values. We store the key-value pair in this index.
        The use of a linked list is essential due to potential collisions; you could encounter two different keys with
        the same hash code or two different hash codes pointing to the same index.
-      
-![HashCode](../../images/hashtable_example.png "HashCode")
-
 
 * Now, when it comes to performance, if there are a lot of collisions, the worst-case runtime is O(N), where N
   represents the number of keys. However, if collisions are not too frequent, the runtime is an impressive O(1) –
