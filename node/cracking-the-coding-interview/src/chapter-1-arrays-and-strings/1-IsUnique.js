@@ -2,7 +2,7 @@
  * Is Unique: Implement an algorithm to determine if a string has all unique characters.
  * What if you cannot use additional data structures?
  * Assumption: Character set is ASCII
- * Solution: scroll down
+ * Hint: scroll down
  * @param str
  * @return {boolean}
  */
