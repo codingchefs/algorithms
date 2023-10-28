@@ -13,31 +13,69 @@ class HashTable {
   }
 
   /**
-   * Add all the charcodes of individual chars modulus by table size
-   * @param{String} key
+   *  
+   * @param {string} key
+   * @return {number} index
    */
   hash(key) {
     let total = 0;
-    for(let i = 0; i < key.length; i++) {
-      total += key.charCodeAt(i);
+    let RANDOM_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      const currentChar = key[i];
+      const asciiValue = currentChar.charCodeAt(0) - 96;
+      total = (total * RANDOM_PRIME + asciiValue) % this.size;
     }
-
-    return total % this.size;
   }
 
+
+  /**
+   * @param {string} key
+   * @param {string|number} value
+   */
   set(key, value) {
     const index = this.hash(key);
-    this.table[index] = value;
+    const bucket = this.table[index];
+
+    if (!bucket) {
+      this.table[index] = [[key, value]];
+    } else {
+      const existingItemWithSameKey = bucket.find(([k]) => k === key);
+
+      if (existingItemWithSameKey) {
+        existingItemWithSameKey[1] = value;
+      } else {
+        bucket.push([key, value]);
+      }
+    }
   }
 
+  /**
+   * @param {string} key
+   * @return {string|undefined}
+   */
   get(key) {
     const index = this.hash(key);
-    return this.table[index];
+    const bucket = this.table[index];
+    if(bucket) {
+      const existingItemWithSameKey = bucket.find(item => item[0] === key);
+      if(existingItemWithSameKey) {
+        return existingItemWithSameKey
+      }
+    }
   }
 
+  /**
+   * @param {string} key
+   */
   remove(key) {
     const index = this.hash(key);
-    delete this.table[index];
+    const bucket = this.table[index];
+    if (bucket) {
+      const existingItemWithSameKey = bucket.find(item => item[0] === key);
+      if (existingItemWithSameKey) {
+        bucket.splice(bucket.indexOf(existingItemWithSameKey, 1));
+      }
+    }
   }
 
   display(){
@@ -52,4 +90,6 @@ const table = new HashTable(50);
 
 table.set('name', 'Bruce');
 table.set('age', 25);
+table.set('mane', 'culater');
+console.log(table.get('mane'));
 table.display();
