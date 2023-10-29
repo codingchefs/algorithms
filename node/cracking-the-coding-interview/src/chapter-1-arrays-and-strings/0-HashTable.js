@@ -8,12 +8,12 @@
 class HashTable {
 
   constructor(size) {
-    this.table = new Array(size);
+    this.keyMap = new Array(size);
     this.size = size;
   }
 
   /**
-   *  
+   *
    * @param {string} key
    * @return {number} index
    */
@@ -34,19 +34,11 @@ class HashTable {
    */
   set(key, value) {
     const index = this.hash(key);
-    const bucket = this.table[index];
 
-    if (!bucket) {
-      this.table[index] = [[key, value]];
-    } else {
-      const existingItemWithSameKey = bucket.find(([k]) => k === key);
-
-      if (existingItemWithSameKey) {
-        existingItemWithSameKey[1] = value;
-      } else {
-        bucket.push([key, value]);
-      }
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
     }
+    this.keyMap[index].push([key, value]);
   }
 
   /**
@@ -55,7 +47,7 @@ class HashTable {
    */
   get(key) {
     const index = this.hash(key);
-    const bucket = this.table[index];
+    const bucket = this.keyMap[index];
     if(bucket) {
       const existingItemWithSameKey = bucket.find(item => item[0] === key);
       if(existingItemWithSameKey) {
@@ -69,7 +61,7 @@ class HashTable {
    */
   remove(key) {
     const index = this.hash(key);
-    const bucket = this.table[index];
+    const bucket = this.keyMap[index];
     if (bucket) {
       const existingItemWithSameKey = bucket.find(item => item[0] === key);
       if (existingItemWithSameKey) {
@@ -79,8 +71,8 @@ class HashTable {
   }
 
   display(){
-    for(const key in this.table) {
-      console.log(this.table[key]);
+    for(const key in this.keyMap) {
+      console.log(this.keyMap[key]);
     }
   }
 }
@@ -92,4 +84,6 @@ table.set('name', 'Bruce');
 table.set('age', 25);
 table.set('mane', 'culater');
 console.log(table.get('mane'));
+table.display();
+table.remove('mane');
 table.display();
