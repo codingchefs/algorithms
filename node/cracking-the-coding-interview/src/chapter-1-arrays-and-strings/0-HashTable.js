@@ -25,6 +25,7 @@ class HashTable {
       const asciiValue = currentChar.charCodeAt(0) - 96;
       total = (total * RANDOM_PRIME + asciiValue) % this.size;
     }
+    return total;
   }
 
 
@@ -34,11 +35,19 @@ class HashTable {
    */
   set(key, value) {
     const index = this.hash(key);
+    const bucket = this.keyMap[index];
 
-    if (!this.keyMap[index]) {
-      this.keyMap[index] = [];
+    if (!bucket) {
+      this.keyMap[index] = [[key, value]];
+    } else {
+      const existingItemWithSameKey = bucket.find(([k]) => k === key);
+
+      if (existingItemWithSameKey) {
+        existingItemWithSameKey[1] = value;
+      } else {
+        bucket.push([key, value]);
+      }
     }
-    this.keyMap[index].push([key, value]);
   }
 
   /**
@@ -70,6 +79,30 @@ class HashTable {
     }
   }
 
+  keys() {
+    let keysArr = [];
+    for(const key in this.keyMap) {
+        for(let i = 0; i < this.keyMap[key].length; i++) {
+          if(!keysArr.includes(this.keyMap[key][i][0])) {
+            keysArr.push(this.keyMap[key][i][0]);
+          }
+        }
+    }
+    return keysArr;
+  }
+
+  values() {
+    let valuesArr = [];
+    for(const key in this.keyMap) {
+        for(let i = 0; i < this.keyMap[key].length; i++) {
+          if(!valuesArr.includes(this.keyMap[key][i][1])) {
+            valuesArr.push(this.keyMap[key][i][1]);
+          }
+        }
+      }
+    return valuesArr;
+  }
+
   display(){
     for(const key in this.keyMap) {
       console.log(this.keyMap[key]);
@@ -83,7 +116,12 @@ const table = new HashTable(50);
 table.set('name', 'Bruce');
 table.set('age', 25);
 table.set('mane', 'culater');
-console.log(table.get('mane'));
+table.set('firstName', 'Bruce');
+table.set('age', 26);
+console.log('mane value:', table.get('mane'));
 table.display();
+console.log('keys:', table.keys());
+console.log('values:', table.values());
 table.remove('mane');
 table.display();
+
